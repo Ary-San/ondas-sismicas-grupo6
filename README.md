@@ -26,19 +26,26 @@ Pendientes señalados en conversación previa:
 - QR: opcional, no exigido por el enunciado. Si se agrega, lo más útil es apuntar al repo de este código.
 - Reforzar la justificación de `cR < vS < vP` (actividad 4).
 
-## Script de simulación (pendiente de escribir)
+## Script de simulación
 
-El póster usa `disba` (método de Dunkin) para generar las curvas de dispersión de los
-Modelos A y B (Fig. 2 y 3 del póster) y las pruebas de sensibilidad aisladas (variar solo
-`h` o solo `vS` desde el Modelo A). Falta el script que:
+`scripts/dispersion.py` usa `disba` (método de Dunkin) para generar las curvas de dispersión
+del modo fundamental de Rayleigh, `cR(f)` y `vg(f)` (1–60 Hz), para:
 
-1. Define los dos modelos estratificados (capa + semiespacio) usados en el póster:
-   - Modelo A: capa de 10 m, vp=600, vs=200, ρ=1800 sobre semiespacio vp=1300, vs=650, ρ=2100.
-   - Modelo B: capa de 20 m, vp=600, vs=300, ρ=1800 (mismo semiespacio).
-2. Calcula `cR(f)` y `vg(f)` para el modo fundamental de Rayleigh (1–60 Hz) con `disba`.
-3. Reproduce las pruebas de sensibilidad aisladas desde el Modelo A (solo cambiar `h` a 20 m,
-   solo cambiar `vS` a 300 m/s) reportadas en el póster.
-4. Exporta las curvas como SVG/PNG vectorial para reemplazar los paneles del póster si hace falta.
+- **Modelo A**: capa de 10 m, vp=600, vs=200, ρ=1800 sobre semiespacio vp=1300, vs=650, ρ=2100.
+- **Modelo B**: capa de 20 m, vp=600, vs=300, ρ=1800 (mismo semiespacio).
+- **Sensibilidad aislada (solo h)**: Modelo A con h=20 m (vS sin cambiar).
+- **Sensibilidad aislada (solo vS)**: Modelo A con vS=300 m/s (h sin cambiar).
+
+Uso:
+
+```bash
+pip install -r requirements.txt
+python3 scripts/dispersion.py
+```
+
+Genera en `outputs/`: un CSV por modelo (`f_Hz_fase,cR_mps,f_Hz_grupo,vg_mps`) y tres figuras
+PNG (Modelo A vs B, sensibilidad a `h`, sensibilidad a `vS`) listas para comparar con los
+paneles del póster o reemplazarlos si hace falta.
 
 ## Requisitos del curso
 
