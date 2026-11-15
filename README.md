@@ -23,8 +23,13 @@ Cobertura de las 6 actividades obligatorias del enunciado: completa, salvo un pu
 
 Pendientes señalados en conversación previa:
 - Nombres de los integrantes (placeholder en el póster).
-- QR: opcional, no exigido por el enunciado. Si se agrega, lo más útil es apuntar al repo de este código.
 - Reforzar la justificación de `cR < vS < vP` (actividad 4).
+
+### QR del póster
+
+`assets/qr_repo.png` apunta a este repositorio (`https://github.com/Ary-San/ondas-sismicas-grupo6`),
+donde está el script de simulación (`scripts/dispersion.py`) que generó las curvas de dispersión
+del póster. Insertarlo en una esquina del póster (p. ej. junto a las referencias).
 
 ## Script de simulación
 
