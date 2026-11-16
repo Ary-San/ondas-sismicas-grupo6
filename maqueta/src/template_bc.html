@@ -17,7 +17,9 @@ body { background: var(--bg); color: var(--navy); font-family: 'Source Sans 3', 
 sub { font-size: 70%; vertical-align: -0.28em; line-height: 0; }
 .abs { position: absolute; }
 .katex { font-size: 1.0em; }
-.katex-display { margin: 1pt 0 3pt; }
+p .katex, li .katex { white-space: nowrap; }
+.katex-display { margin: 12pt 0 14pt; }
+.katex-display + .katex-display { margin-top: 4pt; }
 .katex-display > .katex { text-align: left; padding-left: 14pt; }
 .katex-display > .katex > .katex-html > .tag { font-size: 0.8em; color: var(--sec); }
 
@@ -96,8 +98,8 @@ body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: v
   <h2>Dos potenciales</h2>
   <M>\rho\,\partial_t^2\mathbf u=(\lambda+2\mu)\nabla(\nabla\!\cdot\mathbf u)-\mu\nabla\times\nabla\times\mathbf u\tag{1}</M>
   <p><m>\mathbf u=\nabla\phi+\nabla\times(\psi\hat{\mathbf y})</m>: <m>\nabla\!\cdot\mathbf u=\nabla^2\phi</m> (φ: volumen, P) y <m>\nabla\!\cdot\nabla\times=0</m> (ψ: cizalla, SV) [2]:</p>
-  <M>\begin{gathered}\partial_t^2\phi=v_p^2\nabla^2\phi,\quad \partial_t^2\psi=v_s^2\nabla^2\psi\\ v_p=\sqrt{(\lambda+2\mu)/\rho},\quad v_s=\sqrt{\mu/\rho}\end{gathered}\tag{2}</M>
-  <M>\begin{gathered}\phi=Ae^{-qz}E,\ \ \psi=Be^{-sz}E,\ \ E=e^{i(kx-\omega t)}\\ q^2=k^2-\tfrac{\omega^2}{v_p^2},\quad s^2=k^2-\tfrac{\omega^2}{v_s^2}\end{gathered}\tag{3}</M>
+  <M>\begin{aligned}&\partial_t^2\phi=v_p^2\nabla^2\phi,\quad \partial_t^2\psi=v_s^2\nabla^2\psi\\[8pt]&v_p=\sqrt{(\lambda+2\mu)/\rho},\quad v_s=\sqrt{\mu/\rho}\end{aligned}\tag{2}</M>
+  <M>\begin{aligned}&\phi=Ae^{-qz}E,\ \ \psi=Be^{-sz}E,\ \ E=e^{i(kx-\omega t)}\\[8pt]&q^2=k^2-\tfrac{\omega^2}{v_p^2},\quad s^2=k^2-\tfrac{\omega^2}{v_s^2}\end{aligned}\tag{3}</M>
   <p><span class="fix" data-tag="E5 · E8">Medio en z ≥ 0 (z hacia abajo); B = −2ikqA/(k²+s²) por (7):</span></p>
   <M>u_x=\partial_x\phi-\partial_z\psi=ikA\big[e^{-qz}-\tfrac{2qs}{k^2+s^2}e^{-sz}\big]E\tag{4}</M>
   <M>u_z=\partial_z\phi+\partial_x\psi=-qA\big[e^{-qz}-\tfrac{2k^2}{k^2+s^2}e^{-sz}\big]E\tag{5}</M>
@@ -105,27 +107,27 @@ body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: v
 
   <h2>Superficie libre → ecuación secular</h2>
   <p>El aire no ejerce tracción: σ<sub>xz</sub> = σ<sub>zz</sub> = 0 en z = 0, con</p>
-  <M>\begin{gathered}\sigma_{zz}=\lambda\nabla^2\phi+2\mu(\partial_z^2\phi+\partial_x\partial_z\psi)\\ \sigma_{xz}=\mu(2\partial_x\partial_z\phi+\partial_x^2\psi-\partial_z^2\psi)\end{gathered}\tag{6}</M>
+  <M>\begin{aligned}&\sigma_{zz}=\lambda\nabla^2\phi+2\mu(\partial_z^2\phi+\partial_x\partial_z\psi)\\[8pt]&\sigma_{xz}=\mu(2\partial_x\partial_z\phi+\partial_x^2\psi-\partial_z^2\psi)\end{aligned}\tag{6}</M>
   <p>Con (3) en z = 0 se obtiene un sistema homogéneo:</p>
   <M>\underbrace{\begin{pmatrix}k^2+s^2 & -2iks\\ -2ikq & -(k^2+s^2)\end{pmatrix}}_{M}\begin{pmatrix}A\\ B\end{pmatrix}=\mathbf 0\tag{7}</M>
   <p><span class="fix" data-tag="E9">(A, B) ≠ (0, 0)</span> ⇔ det M = 0 ⇔ <m>(k^2+s^2)^2=4k^2qs</m>. Entre k⁴:</p>
-  <M>\begin{gathered}(2-\xi^2)^2-4\sqrt{1-\xi^2}\sqrt{1-\beta\xi^2}=0\\ \xi=c_R/v_s,\quad \beta=(v_s/v_p)^2,\quad c_R=\omega/k\end{gathered}\tag{8}</M>
+  <M>\begin{aligned}&(2-\xi^2)^2-4\sqrt{1-\xi^2}\sqrt{1-\beta\xi^2}=0\\[8pt]&\xi=c_R/v_s,\quad \beta=(v_s/v_p)^2,\quad c_R=\omega/k\end{aligned}\tag{8}</M>
   <p><span class="fix" data-tag="E6">Hay raíz en 0 &lt; ξ &lt; 1 (el lado izquierdo va de &lt; 0 a +1), única si 0 &lt; β &lt; 3/4.</span> Semiespacio: c<sub>R</sub> = 606,1 m/s. Sin ω en (8): no hay dispersión.</p>
 
-  <h2>¿Por qué c<sub>R</sub> &lt; v<sub>s</sub> &lt; v<sub>p</sub>?</h2>
-  <ul class="tight">
-    <li><m>v_p^2/v_s^2=2+\lambda/\mu</m> y la estabilidad (μ, K &gt; 0) da v<sub>p</sub>/v<sub>s</sub> &gt; 1,15.</li>
-    <li>Con c &gt; v<sub>s</sub>, SV radia hacia abajo (s imaginaria). Sin material encima la superficie cede: <span class="fix" data-tag="E7">c<sub>R</sub> ≈ 0,87–0,96 v<sub>s</sub> según ν</span>.</li>
-  </ul>
 </div>
 
 <!-- ===================== COLUMNA 2 ===================== -->
 <div id="c2" class="col">
   <div class="lab">02 &nbsp;·&nbsp; DOS SUELOS ESTRATIFICADOS</div>
+  <h2>¿Por qué c<sub>R</sub> &lt; v<sub>s</sub> &lt; v<sub>p</sub>?</h2>
+  <ul class="tight">
+    <li><m>v_p^2/v_s^2=2+\lambda/\mu</m> y la estabilidad (μ, K &gt; 0) da v<sub>p</sub>/v<sub>s</sub> &gt; 1,15.</li>
+    <li>Con c &gt; v<sub>s</sub>, s es imaginaria y SV radia hacia abajo. La superficie libre cede: <span class="fix" data-tag="E7">c<sub>R</sub> ≈ 0,87–0,96 v<sub>s</sub> según ν</span>.</li>
+  </ul>
   <div class="chg" data-tag="B · tabla + perfil + Vs30 fusionados">
   <h2>Dos suelos, dos curvas</h2>
   <img class="fig" src="fig_suelos.svg">
-  <p class="cap"><b>Figura 2.</b> Capa sobre semiespacio (densidad ρ en kg/m³). V<sub>s30</sub> = 30/Σ(h<sub>i</sub>/v<sub>si</sub>) es casi igual en A y B (ambos S2 en la E.030 [3]): un solo número oculta la estratificación.</p>
+  <p class="cap"><b>Figura 2.</b> ρ en kg/m³. V<sub>s30</sub> = 30/Σ(h<sub>i</sub>/v<sub>si</sub>) casi igual en A y B (ambos S2, E.030 [3]): un solo número oculta la estratificación.</p>
   </div>
   <p>Dunkin [4] con disba 0.7.0 [5], modo 0, 1–60 Hz. Control: el semiespacio solo da 606,1 m/s, igual que (8).</p>
   <div class="chg" data-tag="B · Fig. 3 rediseñada">

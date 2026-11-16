@@ -68,7 +68,7 @@ C = {k: curves(m, f) for k, m in M.items()}
 ASYM = {"capa A": 189.5, "capa B": 279.8, "semiespacio": 606.1}
 
 # ---------- 1. Suelos A y B (tabla + perfil + Vs30) ----------
-fig = plt.figure(figsize=(W, 380 / 72))
+fig = plt.figure(figsize=(W, 330 / 72))
 ax = fig.add_axes([0.11, 0.16, 0.87, 0.72])
 ax.set_xlim(0, 100)
 ax.set_ylim(35, 0)
@@ -91,8 +91,8 @@ NUM["vs30"] = {k: round(v, 1) for k, v in vs30.items()}
 save(fig, "fig_suelos.svg")
 
 # ---------- 2. Dispersión A vs B (log f, asíntotas, Airy) ----------
-fig, axs = plt.subplots(2, 1, figsize=(W, 740 / 72), sharex=True, gridspec_kw={"hspace": 0.14})
-fig.subplots_adjust(left=0.13, right=0.83, top=0.93, bottom=0.10)
+fig, axs = plt.subplots(2, 1, figsize=(W, 650 / 72), sharex=True, gridspec_kw={"hspace": 0.14})
+fig.subplots_adjust(left=0.13, right=0.83, top=0.93, bottom=0.135)
 for ax, idx, ttl in ((axs[0], 1, "Velocidad de fase $c_R$ (m/s)"), (axs[1], 3, "Velocidad de grupo $v_g$ (m/s)")):
     for k, col, ls, lab in (("A", TEAL, "-", "Modelo A"), ("B", ORANGE, "--", "Modelo B")):
         ax.plot(C[k][idx - 1], C[k][idx], color=col, ls=ls, lw=3.2, label=lab)
@@ -114,7 +114,7 @@ for k, col in (("A", TEAL), ("B", ORANGE)):
     gmin = float(np.polyval([a2, a1, _], fmin - fg[i]))
     airy[k] = (round(float(fmin), 3), round(gmin, 2))
     axs[1].plot(fmin, gmin, "o", ms=12, mfc="white", mec=col, mew=3)
-axs[1].annotate("fase de Airy\n(mínimo de $v_g$)", xy=(airy["A"][0], airy["A"][1]), xytext=(17, 70), fontsize=21, color=NAVY,
+axs[1].annotate("fase de Airy", xy=(airy["A"][0], airy["A"][1]), xytext=(20, 70), fontsize=21, color=NAVY,
                 arrowprops=dict(arrowstyle="-|>", color=NAVY, lw=1.6), va="bottom")
 NUM["airy"] = airy
 axs[1].set_xlabel("Frecuencia f (Hz, escala log)")
@@ -122,8 +122,8 @@ axs[0].legend(loc="lower left", ncol=1, handlelength=2.2)
 save(fig, "fig_dispersion.svg")
 
 # ---------- 3. Cambios aislados ----------
-fig, ax = plt.subplots(figsize=(W, 380 / 72))
-fig.subplots_adjust(left=0.13, right=0.97, top=0.95, bottom=0.21)
+fig, ax = plt.subplots(figsize=(W, 330 / 72))
+fig.subplots_adjust(left=0.13, right=0.97, top=0.95, bottom=0.25)
 ax.plot(C["A"][0], C["A"][1], color=TEAL, lw=3.2, label="A (h 10 m, $v_s$ 200)")
 ax.plot(C["h20"][0], C["h20"][1], color=NAVY, lw=2.8, ls="--", label="solo h → 20 m")
 ax.plot(C["vs300"][0], C["vs300"][1], color=NAVY, lw=2.8, ls=":", label="solo $v_s$ → 300")
