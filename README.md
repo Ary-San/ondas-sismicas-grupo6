@@ -35,6 +35,17 @@ justificación de cR < vs < vp; Fig. 1 nueva calculada con las ecs. (4)–(5) (`
 
 Regenerar: `cd maqueta/src && npm install && cp ../../assets/qr_repo.png . && python3 fig1.py > fig1.svg && node build.mjs`
 
+### Maqueta con las Etapas B y C
+
+`maqueta/maqueta_etapaBC.pdf` (A0) agrega a la Etapa A:
+- **Figuras nuevas** (`maqueta/figuras_bc/`, generadas con `src/figuras.py`): modelo de capas con Vs30, dispersión en escala log con asíntotas y fase de Airy, cambios aislados de h y vs, kernels de sensibilidad y mapa de una inversión de prueba.
+- **Tipografía:** cuerpo de 30 pt y títulos de 46 pt.
+- **Contenido:** conclusión que responde la pregunta, Vs30 con la Norma E.030, limitaciones y referencias completas y verificadas.
+
+Las cifras citadas están en `src/numeros.json`.
+
+Regenerar: además de lo de la Etapa A, descargar Source Sans 3 (TTF) en `src/ttf/` y correr `python3 figuras.py && node build_bc.mjs`.
+
 ### QR del póster
 
 `assets/qr_repo.png` apunta a este repositorio (`https://github.com/Ary-San/ondas-sismicas-grupo6`),

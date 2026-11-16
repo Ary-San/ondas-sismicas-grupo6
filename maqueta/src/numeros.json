@@ -1,0 +1,58 @@
+{
+ "vs30": {
+  "Modelo A": 371.4,
+  "Modelo B": 365.6
+ },
+ "airy": {
+  "A": [
+   9.66,
+   77.6
+  ],
+  "B": [
+   6.68,
+   163.8
+  ]
+ },
+ "fh_scaling_max_diff": 0.098,
+ "kernels": {
+  "3": {
+   "lambda_m": 191.8,
+   "frac_capa": 0.095,
+   "z_pico": 0.5
+  },
+  "6": {
+   "lambda_m": 86.8,
+   "frac_capa": 0.795,
+   "z_pico": 1.5
+  },
+  "10": {
+   "lambda_m": 27.0,
+   "frac_capa": 0.978,
+   "z_pico": 6.5
+  },
+  "20": {
+   "lambda_m": 9.6,
+   "frac_capa": 1.0,
+   "z_pico": 2.5
+  }
+ },
+ "inversion": {
+  "chi_min": 0.86,
+  "full_h": [
+   9.5,
+   10.5
+  ],
+  "full_vs": [
+   194.0,
+   206.0
+  ],
+  "hi_h": [
+   8.5,
+   40.0
+  ],
+  "hi_vs": [
+   196.0,
+   208.0
+  ]
+ }
+}

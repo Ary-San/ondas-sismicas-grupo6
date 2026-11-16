@@ -1,3 +1,5 @@
 node_modules/
+ttf/
 *.html
 !template.html
+!template_bc.html
