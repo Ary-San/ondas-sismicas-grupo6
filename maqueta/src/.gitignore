@@ -3,3 +3,4 @@ ttf/
 *.html
 !template.html
 !template_bc.html
+!template_d.html

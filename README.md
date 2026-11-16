@@ -46,6 +46,17 @@ Las cifras citadas están en `src/numeros.json`.
 
 Regenerar: además de lo de la Etapa A, descargar Source Sans 3 (TTF) en `src/ttf/` y correr `python3 figuras.py && node build_bc.mjs`.
 
+### Maqueta estética
+
+`maqueta/maqueta_estetica.pdf` parte de la versión B+C corregida y le cambia la presentación:
+- **Columna 1:** la teoría como una escalera de cuatro pasos, con la ecuación secular destacada. El desarrollo completo está en `maqueta/derivacion_completa.md`.
+- **Títulos:** cada sección se titula con su conclusión, y los pies de figura empiezan con una línea "Lectura:".
+- **Banda protagonista:** los kernels de sensibilidad en cuatro paneles cruzan las columnas 2 y 3.
+- **Cabecera:** lleva una banda con la onda de Rayleigh calculada.
+- **Conclusión:** cada cifra remite a la figura que la respalda.
+
+Para regenerarla: `python3 src/figuras_d.py`, `python3 src/header_wave.py > header_wave.svg`, `FS=1.16 python3 src/fig1_d.py` y `node src/build_d.mjs`.
+
 ### QR del póster
 
 `assets/qr_repo.png` apunta a este repositorio (`https://github.com/Ary-San/ondas-sismicas-grupo6`),
