@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Póster Grupo 6 · Plantilla UTEC</title>
+<link rel="stylesheet" href="node_modules/katex/dist/katex.min.css">
+<style>
+@font-face { font-family: 'Open Sans'; font-weight: 400; src: url(ttf/OpenSans-Regular.ttf); }
+@font-face { font-family: 'Open Sans'; font-weight: 400; font-style: italic; src: url(ttf/OpenSans-Italic.ttf); }
+@font-face { font-family: 'Open Sans'; font-weight: 600; src: url(ttf/OpenSans-SemiBold.ttf); }
+@font-face { font-family: 'Open Sans'; font-weight: 700; src: url(ttf/OpenSans-Bold.ttf); }
+@font-face { font-family: 'Arimo'; font-weight: 400; src: url(ttf/Arimo-Regular.ttf); }
+@font-face { font-family: 'Arimo'; font-weight: 700; src: url(ttf/Arimo-Bold.ttf); }
+@page { size: 1189mm 841mm; margin: 0; }
+:root { --cyan:#01BEFF; --cyan-d:#0080AD; --ink:#231F20; --frame:#2B2523; --sec:#3D4F5C; --muted:#6B7880; --teal:#006C78; --light:#E6F0F2; --orange:#AD481F; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 3370pt; height: 2383pt; }
+body { background: #fff; color: var(--ink); font-family: 'Open Sans', sans-serif; font-size: 28pt; line-height: 39pt; position: relative; overflow: hidden; }
+sub { font-size: 70%; vertical-align: -0.28em; line-height: 0; }
+.abs { position: absolute; }
+.katex { font-size: 1.0em; }
+p .katex, li .katex { white-space: nowrap; }
+.katex-display { margin: 8pt 0 10pt; }
+.katex-display > .katex { text-align: left; padding-left: 8pt; }
+.katex-display > .katex > .katex-html > .tag { font-size: 0.8em; color: var(--muted); }
+
+/* cabecera según plantilla */
+#logo { left: 0; top: 0; width: 398pt; height: 267pt; background: #fff; display: flex; align-items: center; justify-content: center; }
+#logo img { width: 350pt; }
+#cyanband { left: 398pt; top: 0; width: 2972pt; height: 267pt; background: var(--cyan); color: #fff; font-family: 'Arimo', sans-serif; }
+#title { left: 140pt; top: 34pt; font-size: 116pt; line-height: 128pt; letter-spacing: 1pt; }
+#subtitle { left: 146pt; top: 172pt; font-size: 50pt; line-height: 60pt; }
+#blackband { left: 0; top: 267pt; width: 3370pt; height: 181pt; background: #000; color: #fff; font-family: 'Arimo', sans-serif; }
+#names { left: 78pt; top: 26pt; font-size: 58pt; line-height: 66pt; }
+#doc { right: 78pt; top: 40pt; font-size: 36pt; line-height: 44pt; text-align: right; }
+#affil { left: 78pt; top: 108pt; font-size: 42pt; line-height: 50pt; }
+
+/* cajas */
+.box { position: absolute; background: #fff; border: 2pt solid var(--frame); display: flex; flex-direction: column; }
+.box > .hd { height: 140pt; background: var(--cyan); color: #fff; font-family: 'Arimo', sans-serif; font-size: 50pt; line-height: 140pt; padding-left: 70pt; flex: none; }
+.box > .hd.dark { background: #000; }
+.box > .in { flex: 1; padding: 18pt 40pt 12pt; overflow: hidden; }
+#intro { left: 0; top: 477pt; width: 1099pt; height: 812pt; }
+#metod { left: 0; top: 1317pt; width: 1099pt; height: 1035pt; }
+#result { left: 1163pt; top: 477pt; width: 1108pt; height: 1875pt; }
+#concl { left: 2305pt; top: 477pt; width: 1065pt; height: 1212pt; }
+#refs { left: 2305pt; top: 1736pt; width: 1065pt; height: 616pt; }
+
+h3 { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 32pt; line-height: 38pt; margin: 14pt 0 6pt; color: var(--ink); }
+h3:first-child { margin-top: 0; }
+p { margin: 0 0 6pt; }
+.q { font-weight: 700; font-size: 31pt; line-height: 40pt; }
+.cap { font-size: 23pt; line-height: 29pt; color: var(--sec); margin: 2pt 0 4pt; }
+.cap b { color: var(--ink); }
+.row { display: flex; gap: 26pt; align-items: flex-start; }
+.row > .fig { flex: none; }
+.row > .txt { flex: 1; }
+img.fig, svg.fig { display: block; }
+.cols2 { column-count: 2; column-gap: 40pt; column-fill: auto; height: 100%; font-size: 24pt; line-height: 31.5pt; }
+.cols2 .katex-display > .katex { font-size: 0.95em; }
+.cols2 .katex-display, .cols2 h3, .cols2 .keep { break-inside: avoid; }
+.cols2 .katex-display { margin: 10pt 0 12pt; padding: 7pt 4pt 7pt 2pt; background: #F2FAFE; border-left: 5pt solid var(--cyan); }
+.cols2 h3.newcol { break-before: column; margin-top: 0; }
+.cols2 h3 { font-size: 29pt; line-height: 34pt; margin-top: 5pt; break-after: avoid; }
+ul.tight { list-style: none; }
+ul.tight li { padding-left: 24pt; position: relative; margin-bottom: 4pt; }
+ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--cyan-d); }
+
+/* conclusiones */
+.lead { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 38pt; line-height: 44pt; margin-bottom: 14pt; }
+.find { display: grid; grid-template-columns: 250pt 1fr; column-gap: 20pt; align-items: baseline; margin-bottom: 6pt; }
+.find .n { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 56pt; line-height: 60pt; color: var(--cyan-d); white-space: nowrap; }
+.find p { font-size: 27pt; line-height: 35pt; }
+.find small { font-size: 22pt; color: var(--muted); }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6pt 4pt; margin: 4pt 0 8pt; font-size: 23pt; line-height: 27pt; font-weight: 700; }
+.flow span.c { background: #E5F7FF; border: 1.5pt solid var(--cyan); padding: 6pt 10pt; border-radius: 4pt; }
+.flow span.c.last { background: var(--cyan); color: #fff; }
+.flow span.a { color: var(--cyan-d); }
+.lim { font-size: 20pt; line-height: 25pt; color: var(--muted); border-top: 2pt solid #E5E8EA; padding-top: 8pt; margin-top: 10pt; }
+.lim b { color: var(--sec); }
+.ana { font-size: 22pt; line-height: 28pt; background: #E5F7FF; border-left: 6pt solid var(--cyan); padding: 8pt 12pt; margin: 6pt 0 8pt; }
+
+/* referencias */
+.refs { display: grid; grid-template-columns: 1fr 190pt; column-gap: 24pt; height: 100%; }
+.refs ol { list-style: none; font-size: 20pt; line-height: 25pt; }
+.refs li { margin-bottom: 2pt; }
+.refs .d { color: var(--cyan-d); }
+.qr { text-align: center; font-size: 18pt; line-height: 22pt; color: var(--muted); align-self: center; }
+.qr img { width: 165pt; height: 165pt; display: block; margin: 0 auto 6pt; }
+</style>
+</head>
+<body>
+
+<div id="logo" class="abs"><img src="utec_logo.png" alt="UTEC"></div>
+<div id="cyanband" class="abs">
+  <div id="title" class="abs">ONDAS SÍSMICAS SUPERFICIALES</div>
+  <div id="subtitle" class="abs">Modos de Rayleigh, dispersión e inversión del subsuelo</div>
+</div>
+<div id="blackband" class="abs">
+  <div id="names" class="abs">DANNA GALA · ARY SANCHEZ · EDUARDO SALVADOR · MENDOZA GRACIA</div>
+  <div id="doc" class="abs">Docentes: Marco Cuyubamba y Eduardo Castillo</div>
+  <div id="affil" class="abs">UNIVERSIDAD DE INGENIERÍA Y TECNOLOGÍA – UTEC, LIMA, PERÚ · ÓPTICA Y ONDAS · GRUPO 6</div>
+</div>
+
+<!-- ===== INTRODUCCIÓN ===== -->
+<div id="intro" class="box"><div class="hd">INTRODUCCIÓN</div><div class="in" id="intro-in">
+  <p class="q">¿Cómo revela la dispersión de las ondas de Rayleigh la estructura mecánica del subsuelo?</p>
+  <p style="font-size:25pt;line-height:32pt">Objetivo: derivar la ecuación secular, simular c<sub>R</sub>(f) y v<sub>g</sub>(f) en dos suelos estratificados y medir qué profundidad controla cada frecuencia.</p>
+  <div class="row" style="margin-top:8pt">
+    <div class="txt" style="font-size:25pt;line-height:33pt">
+      <p><b>P</b> · De cuerpo, longitudinal: compresión y dilatación en la dirección de avance (v<sub>p</sub>).</p>
+      <p><b>S</b> · De cuerpo, transversal: cizalla perpendicular al avance (v<sub>s</sub> &lt; v<sub>p</sub>).</p>
+      <p><b>Rayleigh</b> · Superficial: combina P y SV en elipses verticales que se atenúan en ~1 Λ; viaja a c<sub>R</sub> &lt; v<sub>s</sub> [1].</p>
+    </div>
+    <div class="fig">{{FIG1}}</div>
+  </div>
+  <p class="cap"><b>Figura 1.</b> (a) P y (b) S frente al avance. (c) Rayleigh calculada con (4)–(5) para v<sub>p</sub>/v<sub>s</sub> = 2: H/V = 0,64; giro retrógrado arriba y prógrado bajo z ≈ 0,17 Λ, donde u<sub>x</sub> = 0.</p>
+</div></div>
+
+<!-- ===== METODOLOGÍA ===== -->
+<div id="metod" class="box"><div class="hd">METODOLOGÍA</div><div class="in" id="metod-in"><div class="cols2">
+    <p><b>Supuestos:</b> elástico lineal, isótropo, homogéneo por capas en z ≥ 0 (z hacia abajo); onda plana armónica; ∂<sub>y</sub> = 0. λ, μ (Lamé, Pa); ρ (kg/m³); k: número de onda horizontal (m⁻¹); ω = 2πf (rad/s); Λ = c<sub>R</sub>/f (m). Navier:</p>
+  <M>\rho\,\partial_t^2\mathbf u=(\lambda+2\mu)\nabla(\nabla\!\cdot\mathbf u)-\mu\nabla\times\nabla\times\mathbf u\tag{1}</M>
+  <p><m>\mathbf u=\nabla\phi+\nabla\times(\psi\hat{\mathbf y})</m>: φ cambia el volumen (P), ψ solo cizalla (SV) [2]:</p>
+  <M>\begin{aligned}&\partial_t^2\phi=v_p^2\nabla^2\phi,\quad \partial_t^2\psi=v_s^2\nabla^2\psi\\[9pt]&v_p=\sqrt{(\lambda+2\mu)/\rho},\quad v_s=\sqrt{\mu/\rho}\end{aligned}\tag{2}</M>
+  <M>\begin{aligned}&\phi=Ae^{-qz}E,\ \ \psi=Be^{-sz}E,\ \ E=e^{i(kx-\omega t)}\\[9pt]&q^2=k^2-\omega^2/v_p^2,\quad s^2=k^2-\omega^2/v_s^2\end{aligned}\tag{3}</M>
+  <p>Con <m>u_x=\partial_x\phi-\partial_z\psi</m>, <m>u_z=\partial_z\phi+\partial_x\psi</m> y B = −2ikqA/(k²+s²), por (7):</p>
+  <M>u_x=ikA\big[e^{-qz}-\tfrac{2qs}{k^2+s^2}e^{-sz}\big]E\tag{4}</M>
+  <M>u_z=-qA\big[e^{-qz}-\tfrac{2k^2}{k^2+s^2}e^{-sz}\big]E\tag{5}</M>
+  <p>El factor <b>i</b> desfasa u<sub>x</sub> 90°: la órbita es una <b>elipse</b>; a 0,17 Λ, u<sub>x</sub> = 0 y el giro se invierte.</p>
+  <h3 class="newcol">Frontera libre → secular</h3>
+  <p>Sin tracción: σ<sub>xz</sub> = σ<sub>zz</sub> = 0 en z = 0, con</p>
+  <M>\begin{aligned}&\sigma_{zz}=\lambda\nabla^2\phi+2\mu(\partial_z^2\phi+\partial_x\partial_z\psi)\\[9pt]&\sigma_{xz}=\mu(2\partial_x\partial_z\phi+\partial_x^2\psi-\partial_z^2\psi)\end{aligned}\tag{6}</M>
+  <p>Con (3) en z = 0, sistema homogéneo:</p>
+  <M>\underbrace{\begin{pmatrix}k^2+s^2 & -2iks\\ -2ikq & -(k^2+s^2)\end{pmatrix}}_{M}\begin{pmatrix}A\\ B\end{pmatrix}=\mathbf 0\tag{7}</M>
+  <p>(A, B) ≠ (0, 0) ⇔ det M = 0 ⇔ <m>(k^2+s^2)^2=4k^2qs</m>. Entre k⁴:</p>
+  <M>\begin{aligned}&(2-\xi^2)^2-4\sqrt{1-\xi^2}\sqrt{1-\beta\xi^2}=0\\[9pt]&\xi=c_R/v_s,\quad \beta=(v_s/v_p)^2,\quad c_R=\omega/k\end{aligned}\tag{8}</M>
+  <p>Raíz única en 0 &lt; ξ &lt; 1 si 0 &lt; β &lt; 3/4 (el lado izquierdo va de &lt; 0 a +1): c<sub>R</sub> = 606,1 m/s; sin ω, sin dispersión.</p>
+  <h3>¿Por qué c<sub>R</sub> &lt; v<sub>s</sub> &lt; v<sub>p</sub>?</h3>
+  <ul class="tight">
+    <li><m>v_p^2/v_s^2=2+\lambda/\mu</m>; la estabilidad (μ, K &gt; 0) da v<sub>p</sub>/v<sub>s</sub> &gt; 1,15.</li>
+    <li>Con c &gt; v<sub>s</sub>, s es imaginaria y SV radia hacia abajo. La superficie libre cede: c<sub>R</sub> ≈ 0,87–0,96 v<sub>s</sub> según ν.</li>
+  </ul>
+</div></div></div>
+
+<!-- ===== RESULTADOS ===== -->
+<div id="result" class="box"><div class="hd dark">RESULTADOS</div><div class="in" id="result-in">
+  <div class="row">
+    <img class="fig" src="u_suelos.svg" style="width:500pt">
+    <div class="txt">
+      <h3>Dos suelos, dos curvas</h3>
+      <p style="font-size:24pt;line-height:31pt">Capa sobre semiespacio, interfaz soldada (u y tracción continuas); modo 0, 1–60 Hz, Dunkin [4] con disba 0.7.0 [5]. Control: semiespacio solo = 606,1 m/s, como (8).</p>
+      <p style="font-size:24pt;line-height:31pt">V<sub>s30</sub> = 30/Σ(h<sub>i</sub>/v<sub>si</sub>) casi igual en A y B (S2, E.030 [3]), pero curvas distintas: un solo número oculta la estratificación.</p>
+      <p class="cap"><b>Figura 2.</b> Modelos sintéticos: v<sub>s</sub>, v<sub>p</sub> en m/s; ρ en kg/m³.</p>
+    </div>
+  </div>
+  <img class="fig" src="u_dispersion.svg" style="width:1020pt;margin-top:8pt">
+  <p class="cap"><b>Figura 3.</b> c<sub>R</sub> va de la velocidad de Rayleigh del semiespacio (606,1 m/s) a la de la capa (189,5 / 279,8). ○ Fase de Airy: 9,6 Hz (A), 6,6 Hz (B).</p>
+  <div class="row" style="align-items:center">
+    <div style="flex:none;width:470pt"><M>v_g=\frac{c_R}{1-(f/c_R)\,dc_R/df}\tag{9}</M></div>
+    <p class="txt" style="font-size:24pt;line-height:31pt">Como dc<sub>R</sub>/df &lt; 0, v<sub>g</sub> &lt; c<sub>R</sub>. <b>c<sub>R</sub></b> es la velocidad de las crestas: la mide MASW y es la que se invierte. <b>v<sub>g</sub></b> es la de la envolvente y la energía: fija los tiempos de llegada y la fase de Airy.</p>
+  </div>
+  <div class="row" style="margin-top:6pt">
+    <img class="fig" src="u_aislados.svg" style="width:500pt">
+    <div class="txt">
+      <h3>Cambios aislados</h3>
+      <p>c<sub>R</sub> depende solo de <b>f·h</b>: duplicar h divide por 2 la frecuencia (Airy: 9,6 → 4,8 Hz). v<sub>s</sub> de la capa fija la asíntota; con v<sub>p</sub> fijo también baja ν (0,44 → 0,33).</p>
+      <p class="cap"><b>Figura 4.</b> Desde A, un parámetro a la vez.</p>
+    </div>
+  </div>
+  <h3 style="margin-top:8pt">Cada frecuencia ve una profundidad distinta</h3>
+  <img class="fig" src="u_kernels.svg" style="width:1020pt">
+  <p class="cap"><b>Figura 5.</b> ∂c<sub>R</sub>/∂v<sub>s</sub>(z) del Modelo A (v<sub>p</sub>, ρ fijos; capas de 1 m). %: fracción de su integral dentro de la capa de 10 m. Depende de Λ, del perfil y del modo [6].</p>
+</div></div>
+
+<!-- ===== CONCLUSIONES ===== -->
+<div id="concl" class="box"><div class="hd">CONCLUSIONES</div><div class="in" id="concl-in">
+  <p class="lead">Cada frecuencia ve una profundidad distinta.</p>
+  <div class="find"><div class="n">98 %</div><p>de la sensibilidad (∂c<sub>R</sub>/∂v<sub>s</sub>) a 10 Hz está en los 10 m superiores; a 3 Hz, solo el 10 % <small>(Fig. 5)</small>.</p></div>
+  <div class="find"><div class="n">f · h</div><p>controla la curva: duplicar h baja la transición de 9,6 a 4,8 Hz; v<sub>s</sub> de la capa fija la asíntota <small>(Fig. 4)</small>.</p></div>
+  <div class="find"><div class="n">h ≈ 10 m</div><p>se recupera con 3–40 Hz; con f ≥ 15 Hz queda libre: la banda medida decide qué se invierte <small>(Fig. 6)</small>.</p></div>
+  <div class="row">
+    <img class="fig" src="u_inversion.svg" style="width:400pt">
+    <div class="txt" style="font-size:23pt;line-height:29pt">
+      <h3 style="font-size:27pt;margin-bottom:2pt">Inversión de prueba</h3>
+      <M>\chi=\sqrt{\tfrac1N\textstyle\sum_i\big[(c_i^{\rm obs}-c_i^{\rm calc})/\sigma_i\big]^2}\tag{10}</M>
+      <p>3–40 Hz: h = 9,5–10,5 m, v<sub>s</sub> = 194–206 m/s. Solo f ≥ 15 Hz: h = 8,5–40 m, sin cota [7].</p>
+      <p class="cap" style="font-size:21pt;line-height:26pt"><b>Figura 6.</b> Región χ ≤ 1,5; A con 2 % de ruido (una realización); 40 m = borde de la rejilla; ★ verdadero.</p>
+    </div>
+  </div>
+  <p class="ana"><b>Analogía óptica.</b> Con q, s &gt; 0 los campos son <b>evanescentes</b>, como la onda evanescente en la reflexión total interna; la capa actúa como una <b>guía de onda</b> cuyo modo depende de h/Λ, igual que en una guía óptica: de ahí la dispersión.</p>
+  <h3>Aplicación: MASW y V<sub>s30</sub></h3>
+  <div class="flow"><span class="c">Geófonos + fuente</span><span class="a">→</span><span class="c">Imagen f–c</span><span class="a">→</span><span class="c">Modo 0</span><span class="a">→</span><span class="c">Ajuste (10)</span><span class="a">→</span><span class="c last">V<sub>s</sub>(z)</span></div>
+  <p style="font-size:25pt;line-height:32pt">MASW [8] mide c<sub>R</sub>(f); la inversión [6] da V<sub>s</sub>(z) y V<sub>s30</sub> para la E.030 [3]: microzonificación urbana (Lima).</p>
+  <div class="lim"><b>Fuentes de error</b> · numéricas: c<sub>R</sub> ≤ 0,0003 m/s y v<sub>g</sub> ≤ 0,1 m/s frente a un solver independiente (el v<sub>g</sub> interno de disba, hasta 1,1 m/s) · inversión: ruido del 2 % y rejilla 0,5 m × 2 m/s.<br>
+  <b>Limitaciones</b> · medio 1D elástico sin atenuación · solo modo fundamental · datos sintéticos · v<sub>p</sub>, ρ fijos.<br>
+  <b>Extensiones</b> · modos superiores · ondas Love · atenuación (Q) · inversión de un registro MASW real.</div>
+</div></div>
+
+<!-- ===== REFERENCIAS ===== -->
+<div id="refs" class="box"><div class="hd">REFERENCIAS BIBLIOGRÁFICAS</div><div class="in" id="refs-in"><div class="refs">
+  <ol>
+    <li>[1] Rayleigh, L. (1885). On waves propagated along the plane surface of an elastic solid. <i>Proc. London Math. Soc.</i>, s1-17(1), 4–11. <span class="d">doi:10.1112/plms/s1-17.1.4</span></li>
+    <li>[2] Aki, K. y Richards, P. G. (2002). <i>Quantitative Seismology</i> (2.ª ed.). University Science Books.</li>
+    <li>[3] Ministerio de Vivienda, Construcción y Saneamiento (2018). <i>Norma Técnica E.030 Diseño Sismorresistente</i>. Reglamento Nacional de Edificaciones, Perú.</li>
+    <li>[4] Dunkin, J. W. (1965). Computation of modal solutions in layered, elastic media at high frequencies. <i>BSSA</i>, 55(2), 335–358. <span class="d">doi:10.1785/BSSA0550020335</span></li>
+    <li>[5] Luu, K. <i>disba: Numba-accelerated computation of surface wave dispersion</i> (v0.7.0) [software]. Zenodo. <span class="d">doi:10.5281/zenodo.3987395</span></li>
+    <li>[6] Xia, J., Miller, R. D. y Park, C. B. (1999). Estimation of near-surface shear-wave velocity by inversion of Rayleigh waves. <i>Geophysics</i>, 64(3), 691–700. <span class="d">doi:10.1190/1.1444578</span></li>
+    <li>[7] Foti, S., Lai, C. G., Rix, G. J. y Strobbia, C. (2014). <i>Surface Wave Methods for Near-Surface Site Characterization</i>. CRC Press. <span class="d">doi:10.1201/b17268</span></li>
+    <li>[8] Park, C. B., Miller, R. D. y Xia, J. (1999). Multichannel analysis of surface waves. <i>Geophysics</i>, 64(3), 800–808. <span class="d">doi:10.1190/1.1444590</span></li>
+  </ol>
+  <div class="qr"><img src="qr_repo.png" alt="QR">Código y desarrollo<br>Figuras: elaboración propia (Python, disba)</div>
+</div></div></div>
+</body>
+</html>
