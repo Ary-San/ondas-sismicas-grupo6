@@ -69,7 +69,7 @@ pip install -r requirements.txt
 python3 scripts/dispersion.py
 ```
 
-Genera en `outputs/`: un CSV por modelo (`f_Hz_fase,cR_mps,f_Hz_grupo,vg_mps`) y tres figuras
+Genera en `outputs/`: un CSV por modelo (`f_Hz,cR_mps,vg_mps`, malla de 0,05 Hz; vg por la ec. (9) del póster) y tres figuras
 PNG (Modelo A vs B, sensibilidad a `h`, sensibilidad a `vS`) listas para comparar con los
 paneles del póster o reemplazarlos si hace falta.
 

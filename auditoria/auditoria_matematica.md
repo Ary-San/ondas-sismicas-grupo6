@@ -238,4 +238,4 @@ Las correcciones E1–E10 están aplicadas y marcadas en rojo en `maqueta_etapaB
 - **E4:** la Fig. 5 y la conclusión indican que la fracción se calcula sobre ∂c<sub>R</sub>/∂v<sub>s</sub>, con v<sub>p</sub> y ρ fijos.
 - **E5–E10:** añadidos la relación A–B, la convención de ejes, la notación (A, B) ≠ (0, 0), la unicidad para 0 < β < 3/4, el rango 0,87–0,96 v<sub>s</sub> y la resolución de la inversión.
 
-**Pendiente fuera de la maqueta:** `scripts/dispersion.py` sigue usando el v<sub>g</sub> interno de disba (ver §13). En el póster original de Canva hay que corregir "9,7 → 4,8 Hz" por "9,6 → 4,8 Hz".
+**`scripts/dispersion.py` corregido:** v<sub>g</sub> por la ec. (9) con Δf = 0,05 Hz y mínimo de Airy refinado. Resultados: A en 9,648 Hz y 76,52 m/s; B en 6,638 Hz y 163,31 m/s; solo h = 20 m en 4,827 Hz y 76,62 m/s. En este último caso el valor exacto es 76,49 m/s; la diferencia de 0,13 m/s viene del paso relativo mayor a frecuencia baja. **Pendiente:** en el póster original de Canva hay que corregir "9,7 → 4,8 Hz" por "9,6 → 4,8 Hz".

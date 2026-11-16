@@ -10,10 +10,10 @@ from pathlib import Path
 
 import numpy as np
 import matplotlib.pyplot as plt
-from disba import PhaseDispersion, GroupDispersion
+from disba import PhaseDispersion
 
 OUT_DIR = Path(__file__).resolve().parent.parent / "outputs"
-F_MIN, F_MAX, N_FREQ = 1.0, 60.0, 200
+F_MIN, F_MAX, DF = 1.0, 60.0, 0.05
 
 
 def build_layer_model(h_m, vp_mps, vs_mps, rho_kgm3, vp_half, vs_half, rho_half):
@@ -37,21 +37,32 @@ MODELS = {
 
 
 def dispersion_curves(thickness, vp, vs, rho):
-    """cR(f) y vg(f) del modo fundamental de Rayleigh, en f = 1..60 Hz."""
-    freq = np.linspace(F_MIN, F_MAX, N_FREQ)
+    """cR(f) y vg(f) del modo fundamental de Rayleigh, en f = 1..60 Hz (m/s).
+
+    vg se obtiene con la ec. (9) del póster, vg = cR / [1 - (f/cR) dcR/df], por diferencias
+    centrales con paso DF. No se usa GroupDispersion de disba: frente a una referencia de alta
+    precisión se desvía hasta 1,1 m/s en el mínimo de vg (ver auditoria/auditoria_matematica.md).
+    """
+    freq = np.arange(F_MIN - DF, F_MAX + 1.5 * DF, DF)  # un punto extra a cada lado para la derivada
     period = np.sort(1.0 / freq)  # disba exige el eje de periodos ascendente
+    cp = PhaseDispersion(thickness, vp, vs, rho)(period, mode=0, wave="rayleigh")
 
-    pd = PhaseDispersion(thickness, vp, vs, rho)
-    gd = GroupDispersion(thickness, vp, vs, rho)
+    # disba puede devolver menos periodos si el modo no se resuelve en todo el rango
+    f = 1.0 / cp.period[::-1]
+    c = cp.velocity[::-1] * 1000.0
+    vg = c / (1.0 - (f / c) * np.gradient(c, f))
+    keep = (f >= F_MIN - 1e-9) & (f <= F_MAX + 1e-9)
+    return f[keep], c[keep], vg[keep]
 
-    cp = pd(period, mode=0, wave="rayleigh")
-    cg = gd(period, mode=0, wave="rayleigh")
 
-    # disba puede devolver menos periodos que los pedidos si el modo
-    # no se resuelve en todo el rango; se reconstruye f a partir de cp.period
-    f_phase = 1.0 / cp.period
-    f_group = 1.0 / cg.period
-    return f_phase, cp.velocity * 1000.0, f_group, cg.velocity * 1000.0  # m/s
+def airy_minimum(f, vg):
+    """Mínimo de vg refinado con el vértice de la parábola por los 3 puntos más bajos."""
+    i = int(np.argmin(vg))
+    if i == 0 or i == len(vg) - 1:
+        return float(f[i]), float(vg[i])
+    a2, a1, a0 = np.polyfit(f[i - 1:i + 2] - f[i], vg[i - 1:i + 2], 2)
+    x = -a1 / (2 * a2)
+    return float(f[i] + x), float(np.polyval([a2, a1, a0], x))
 
 
 def slugify(name):
@@ -60,27 +71,18 @@ def slugify(name):
     return name
 
 
-def save_csv(name, f_phase, cR, f_group, vg):
+def save_csv(name, f, cR, vg):
     path = OUT_DIR / f"{slugify(name)}.csv"
-    n = max(len(f_phase), len(f_group))
-    with open(path, "w") as fh:
-        fh.write("f_Hz_fase,cR_mps,f_Hz_grupo,vg_mps\n")
-        for i in range(n):
-            row = [
-                f"{f_phase[i]:.4f}" if i < len(f_phase) else "",
-                f"{cR[i]:.4f}" if i < len(cR) else "",
-                f"{f_group[i]:.4f}" if i < len(f_group) else "",
-                f"{vg[i]:.4f}" if i < len(vg) else "",
-            ]
-            fh.write(",".join(row) + "\n")
+    np.savetxt(path, np.column_stack([f, cR, vg]), delimiter=",", fmt="%.4f",
+               header="f_Hz,cR_mps,vg_mps", comments="")
     return path
 
 
 def plot_models(results, title, filename):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
-    for name, (f_phase, cR, f_group, vg) in results.items():
-        ax1.plot(f_phase, cR, label=name)
-        ax2.plot(f_group, vg, label=name)
+    for name, (f, cR, vg) in results.items():
+        ax1.plot(f, cR, label=name)
+        ax2.plot(f, vg, label=name)
     ax1.set_xlabel("f (Hz)"); ax1.set_ylabel("c_R (m/s)"); ax1.set_title("Velocidad de fase")
     ax2.set_xlabel("f (Hz)"); ax2.set_ylabel("v_g (m/s)"); ax2.set_title("Velocidad de grupo")
     for ax in (ax1, ax2):
@@ -96,10 +98,11 @@ def main():
     OUT_DIR.mkdir(exist_ok=True)
     results = {}
     for name, (thickness, vp, vs, rho) in MODELS.items():
-        f_phase, cR, f_group, vg = dispersion_curves(thickness, vp, vs, rho)
-        results[name] = (f_phase, cR, f_group, vg)
-        save_csv(name, f_phase, cR, f_group, vg)
-        print(f"{name}: cR {cR.min():.1f}-{cR.max():.1f} m/s, vg {vg.min():.1f}-{vg.max():.1f} m/s")
+        f, cR, vg = dispersion_curves(thickness, vp, vs, rho)
+        results[name] = (f, cR, vg)
+        save_csv(name, f, cR, vg)
+        fa, va = airy_minimum(f, vg)
+        print(f"{name}: cR {cR.min():.1f}-{cR.max():.1f} m/s; mínimo de vg (Airy) {va:.2f} m/s a {fa:.3f} Hz")
 
     comparacion = {k: results[k] for k in ("Modelo A", "Modelo B")}
     plot_models(comparacion, "Modelo A vs Modelo B", "modelos_A_vs_B.png")
