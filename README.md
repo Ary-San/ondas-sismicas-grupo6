@@ -25,6 +25,16 @@ Pendientes señalados en conversación previa:
 - Nombres de los integrantes (placeholder en el póster).
 - Reforzar la justificación de `cR < vS < vP` (actividad 4).
 
+### Maqueta con las correcciones de la Etapa A
+
+`maqueta/maqueta_etapaA.pdf` (A0) aplica las correcciones obligatorias de la auditoría:
+Navier → vp, vs; componentes ux, uz y la elipse; σ en función de los potenciales y la matriz M;
+justificación de cR < vs < vp; Fig. 1 nueva calculada con las ecs. (4)–(5) (`maqueta/fig1_rayleigh.svg`).
+`maqueta_etapaA_anotada.pdf` marca cada cambio. Pendiente: nombres de integrantes y confirmar "TEMA 37"
+(no figura en el enunciado).
+
+Regenerar: `cd maqueta/src && npm install && cp ../../assets/qr_repo.png . && python3 fig1.py > fig1.svg && node build.mjs`
+
 ### QR del póster
 
 `assets/qr_repo.png` apunta a este repositorio (`https://github.com/Ary-San/ondas-sismicas-grupo6`),

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Póster Grupo 6 · Maqueta Etapa A</title>
+<link rel="stylesheet" href="node_modules/katex/dist/katex.min.css">
+<style>
+@font-face { font-family: 'Source Sans 3'; font-weight: 400; src: url(node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Source Sans 3'; font-weight: 400; font-style: italic; src: url(node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-400-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Source Sans 3'; font-weight: 600; src: url(node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Source Sans 3'; font-weight: 700; src: url(node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-700-normal.woff2) format('woff2'); }
+@page { size: 841mm 1189mm; margin: 0; }
+:root { --navy:#102A43; --sec:#40596D; --teal:#006C78; --light:#E6F0F2; --bg:#F7F9FA; --bar:#254A5F; --pale:#BCDBE1; --orange:#AD481F; --chg:#8E2DB8; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 2383.94pt; height: 3370.39pt; }
+body { background: var(--bg); color: var(--navy); font-family: 'Source Sans 3', sans-serif; font-size: 26pt; line-height: 36.9pt; position: relative; overflow: hidden; }
+sub { font-size: 72%; vertical-align: -0.28em; line-height: 0; }
+.abs { position: absolute; }
+.katex { font-size: 1.0em; }
+.katex-display { margin: 6pt 0 8pt; }
+.katex-display > .katex { text-align: left; padding-left: 18pt; }
+.katex-display > .katex > .katex-html > .tag { font-size: 0.85em; color: var(--sec); }
+
+#hdr { left: 71.5pt; top: 70.8pt; width: 2243.3pt; height: 580pt; background: var(--navy); border-left: 10pt solid var(--teal); color: #fff; }
+#kicker { left: 54pt; top: 36pt; font-size: 31pt; font-weight: 700; letter-spacing: 1.2pt; color: var(--pale); }
+#title { left: 46pt; top: 98pt; font-size: 111pt; line-height: 116pt; font-weight: 700; letter-spacing: 0.5pt; }
+#subtitle { left: 54pt; top: 338pt; font-size: 49pt; line-height: 56pt; color: #E6F0F2; }
+#rule { left: 54pt; top: 414pt; width: 2120pt; height: 1.5pt; background: #4A6A80; }
+#who { left: 54pt; top: 428pt; width: 2120pt; font-size: 28pt; display: flex; justify-content: space-between; color: #E6F0F2; }
+#question { left: 54pt; top: 482pt; width: 2112pt; height: 71pt; background: var(--bar); font-size: 36pt; font-weight: 700; padding: 15pt 34pt; }
+#qr { position: absolute; right: 64pt; top: 40pt; width: 250pt; text-align: center; }
+#qr img { width: 250pt; height: 250pt; display: block; background: #fff; padding: 14pt; border-radius: 6pt; }
+#qr div { font-size: 20pt; line-height: 24pt; margin-top: 10pt; color: var(--pale); }
+
+.col { position: absolute; top: 705pt; height: 2095pt; }
+#c1 { left: 70.9pt; width: 630pt; }
+#c2 { left: 739.8pt; width: 896pt; }
+#c3 { left: 1675.3pt; width: 638pt; }
+.lab { border-top: 3pt solid var(--teal); padding-top: 9pt; font-size: 23pt; line-height: 28pt; font-weight: 700; color: var(--teal); letter-spacing: 0.8pt; margin-bottom: 28pt; }
+h2 { font-size: 37pt; line-height: 44pt; font-weight: 700; margin: 26pt 0 10pt; }
+.lab + h2, .lab + .chg > h2:first-child { margin-top: 0; }
+p { margin: 0 0 8pt; }
+.cap { font-size: 23pt; line-height: 28.5pt; color: var(--sec); margin: 6pt 0 6pt; }
+.box { background: var(--light); padding: 14pt 18pt; margin-top: 14pt; }
+.kick { font-size: 23pt; font-weight: 700; color: var(--teal); letter-spacing: 0.6pt; }
+ul.tight { list-style: none; }
+ul.tight li { padding-left: 24pt; position: relative; margin-bottom: 6pt; }
+ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--teal); }
+table { border-collapse: collapse; width: 100%; font-size: 24pt; line-height: 30pt; margin: 4pt 0 6pt; }
+th { text-align: left; font-weight: 700; font-size: 23pt; border-bottom: 2pt solid var(--teal); padding: 4pt 8pt; }
+td { padding: 2pt 8pt; }
+thead { background: var(--light); }
+.flow div { background: var(--light); text-align: center; font-weight: 700; font-size: 24pt; padding: 9pt; }
+.flow .arr { background: none; color: var(--teal); font-size: 18pt; line-height: 18pt; padding: 0; }
+.flow .last { background: var(--teal); color: #fff; }
+img.fig { display: block; }
+
+#concl { left: 71.5pt; top: 2832pt; width: 2243.3pt; height: 232pt; background: var(--navy); color: #fff; padding: 26pt 42pt; }
+#concl h3 { font-size: 31pt; font-weight: 700; letter-spacing: 1pt; margin-bottom: 12pt; }
+#concl .g { display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 70pt; }
+#concl h4 { font-size: 28pt; font-weight: 700; color: var(--pale); margin-bottom: 4pt; }
+#concl p { font-size: 27pt; line-height: 31pt; color: #E6F0F2; }
+#refs { left: 70.9pt; top: 3098pt; width: 2243pt; }
+#refs h3 { font-size: 23pt; font-weight: 700; color: var(--teal); letter-spacing: 0.8pt; margin-bottom: 14pt; }
+#refs .g { display: grid; grid-template-columns: 1fr 1fr; column-gap: 70pt; row-gap: 20pt; font-size: 23pt; line-height: 29pt; color: var(--sec); }
+#refs a { color: var(--teal); }
+
+.chg { position: relative; }
+body.annot .chg { outline: 4pt dashed var(--chg); outline-offset: 7pt; }
+body.annot .chg::before { content: attr(data-tag); position: absolute; right: -4pt; top: -22pt; background: var(--chg); color: #fff; font-size: 17pt; line-height: 22pt; font-weight: 700; padding: 3pt 10pt; border-radius: 4pt; z-index: 5; }
+body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: var(--navy); padding: 0 8pt; }
+</style>
+</head>
+<body class="{{MODE}}">
+
+<div id="hdr" class="abs">
+  <div id="kicker" class="abs">GRUPO 6 &nbsp;·&nbsp; <span class="flag">TEMA 37</span> &nbsp;·&nbsp; ÓPTICA Y ONDAS &nbsp;·&nbsp; UTEC</div>
+  <div id="title" class="abs">ONDAS SÍSMICAS<br>SUPERFICIALES</div>
+  <div id="subtitle" class="abs">Modos de Rayleigh, dispersión e inversión del subsuelo</div>
+  <div id="rule" class="abs"></div>
+  <div id="who" class="abs"><span>Integrantes &nbsp;·&nbsp; <span class="flag">[Nombres y apellidos]</span></span><span>Docentes &nbsp;·&nbsp; Marco Cuyubamba y Eduardo Castillo</span></div>
+  <div id="question" class="abs">¿Cómo revela la dispersión de las ondas de Rayleigh la estructura mecánica del subsuelo?</div>
+  <div id="qr" class="chg" data-tag="QR al repo"><img src="qr_repo.png" alt="QR al repositorio"><div>Código y datos (disba)</div></div>
+</div>
+
+<!-- ===================== COLUMNA 1 ===================== -->
+<div id="c1" class="col">
+  <div class="lab">01 &nbsp;·&nbsp; RAYLEIGH EN EL SEMIESPACIO</div>
+
+  <div class="chg" data-tag="A1 · texto + Fig. 1 nueva">
+  <h2>Ondas P, S y Rayleigh</h2>
+  <p><b>P</b> · De cuerpo, longitudinal: compresión y dilatación en la dirección de avance. Viaja a v<sub>p</sub>.</p>
+  <p><b>S</b> · De cuerpo, transversal: cizalla perpendicular al avance, sin cambio de volumen. Viaja a v<sub>s</sub> &lt; v<sub>p</sub>.</p>
+  <p><b>Rayleigh</b> · Superficial: avanza por la superficie libre combinando P y SV, en elipses verticales que se atenúan en ~1 Λ (Λ: longitud de onda). Viaja a c<sub>R</sub> &lt; v<sub>s</sub> [1].</p>
+  {{FIG1}}
+  <p class="cap">Figura 1. (a, b) Movimiento de partículas frente al avance. (c) Calculada con (4)–(5): elipses verticales (H/V = 0,64 en superficie); giro retrógrado arriba y prógrado bajo z ≈ 0,17 Λ, donde u<sub>x</sub> = 0.</p>
+  </div>
+
+  <div class="chg" data-tag="A2 · Navier, uₓ, u_z, elipse">
+  <h2>Dos potenciales, un mismo modo</h2>
+  <p>Navier (λ, μ: parámetros de Lamé; ρ: densidad):</p>
+  <M>\rho\,\partial_t^2\mathbf u=(\lambda+2\mu)\,\nabla(\nabla\!\cdot\mathbf u)-\mu\,\nabla\times\nabla\times\mathbf u \tag{1}</M>
+  <p>Con <m>\mathbf u=\nabla\phi+\nabla\times(\psi\,\hat{\mathbf y})</m>: <m>\nabla\!\cdot\mathbf u=\nabla^2\phi</m> (φ cambia el volumen: <b>P</b>) y <m>\nabla\!\cdot\nabla\times=0</m> (ψ solo cizalla: <b>SV</b>). La ec. (1) se separa en</p>
+  <M>\begin{gathered}\partial_t^2\phi=v_p^2\nabla^2\phi,\qquad \partial_t^2\psi=v_s^2\nabla^2\psi\\ v_p=\sqrt{(\lambda+2\mu)/\rho},\qquad v_s=\sqrt{\mu/\rho}\end{gathered}\tag{2}</M>
+  <M>\begin{gathered}\phi=A\,e^{-qz}E,\quad \psi=B\,e^{-sz}E,\quad E\equiv e^{i(kx-\omega t)}\\ q^2=k^2-\omega^2/v_p^2,\qquad s^2=k^2-\omega^2/v_s^2\end{gathered}\tag{3}</M>
+  <p>Con <m>u_x=\partial_x\phi-\partial_z\psi</m>, <m>u_z=\partial_z\phi+\partial_x\psi</m> y B fijado por (7):</p>
+  <M>u_x=ikA\Big[e^{-qz}-\tfrac{2qs}{k^2+s^2}\,e^{-sz}\Big]E \tag{4}</M>
+  <M>u_z=-qA\Big[e^{-qz}-\tfrac{2k^2}{k^2+s^2}\,e^{-sz}\Big]E \tag{5}</M>
+  <p>El factor <b>i</b> desfasa u<sub>x</sub> 90° respecto de u<sub>z</sub>: <b>la órbita es una elipse</b>. Ambas componentes mezclan P y SV; ninguna sola anula las dos tracciones. u<sub>x</sub> = 0 en <m>z=\ln\!\big[\tfrac{k^2+s^2}{2qs}\big]/(q-s)</m> ≈ 0,17 Λ, donde se invierte el giro.</p>
+  </div>
+
+  <div class="chg" data-tag="A4 · justificación nueva">
+  <h2>¿Por qué c<sub>R</sub> &lt; v<sub>s</sub> &lt; v<sub>p</sub>?</h2>
+  <ul class="tight">
+    <li><b>v<sub>s</sub> &lt; v<sub>p</sub>:</b> <m>v_p^2/v_s^2=2+\lambda/\mu</m>. La estabilidad exige μ &gt; 0 y <m>K=\lambda+\tfrac23\mu>0</m>, así que v<sub>p</sub>/v<sub>s</sub> &gt; √(4/3). Aquí vale 2 y 3.</li>
+    <li><b>c<sub>R</sub> &lt; v<sub>s</sub>:</b> si c &gt; v<sub>s</sub>, s es imaginaria y SV radiaría energía hacia abajo. Solo con c &lt; v<sub>s</sub> &lt; v<sub>p</sub> son q, s &gt; 0 en (3): la onda queda confinada.</li>
+    <li><b>Lectura física:</b> sin material encima, la superficie cede más y c<sub>R</sub> queda ~7 % bajo v<sub>s</sub> (raíz de la ec. 8).</li>
+  </ul>
+  </div>
+</div>
+
+<!-- ===================== COLUMNA 2 ===================== -->
+<div id="c2" class="col">
+  <div class="lab">02 &nbsp;·&nbsp; MODELO ELÁSTICO Y SIMULACIÓN</div>
+
+  <div class="chg" data-tag="A3 · esfuerzos + matriz M + raíz">
+  <h2>La condición para que exista Rayleigh</h2>
+  <p><b>Superficie libre:</b> el aire no ejerce tracción sobre el suelo, así que en z = 0 se anulan σ<sub>xz</sub> y σ<sub>zz</sub>. Con los potenciales:</p>
+  <M>\sigma_{zz}=\lambda\nabla^2\phi+2\mu\,(\partial_z^2\phi+\partial_x\partial_z\psi),\qquad \sigma_{xz}=\mu\,(2\partial_x\partial_z\phi+\partial_x^2\psi-\partial_z^2\psi)\tag{6}</M>
+  <p>Con (3) en z = 0 y <m>\lambda(q^2-k^2)+2\mu q^2=\mu(k^2+s^2)</m> queda un sistema homogéneo:</p>
+  <M>\underbrace{\begin{pmatrix}k^2+s^2 & -2iks\\ -2ikq & -(k^2+s^2)\end{pmatrix}}_{M}\begin{pmatrix}A\\ B\end{pmatrix}=\mathbf 0 \tag{7}</M>
+  <p>Solo admite A, B ≠ 0 si det M = 0, es decir <m>(k^2+s^2)^2=4k^2qs</m>. Dividiendo por k⁴:</p>
+  <M>(2-\xi^2)^2-4\sqrt{1-\xi^2}\sqrt{1-\beta\xi^2}=0,\qquad \xi=\tfrac{c_R}{v_s},\ \ \beta=\big(\tfrac{v_s}{v_p}\big)^2,\ \ c_R=\tfrac{\omega}{k}\tag{8}</M>
+  <p>El lado izquierdo pasa de ≈ −2(1−β)ξ² &lt; 0 (ξ pequeño) a +1 (ξ = 1): hay una raíz física en 0 &lt; ξ &lt; 1. Semiespacio: ξ = 0,9325 → c<sub>R</sub> = 606,1 m/s, igual que la fase y el grupo del solver (control homogéneo). (8) no depende de ω: ω = c<sub>R</sub>k y v<sub>g</sub> = c<sub>R</sub>, sin dispersión.</p>
+  </div>
+
+  <h2>Dos perfiles de suelo, dos curvas</h2>
+  <table>
+    <thead><tr><th>Medio</th><th>h (m)</th><th>v<sub>p</sub> (m/s)</th><th>v<sub>s</sub> (m/s)</th><th>ρ (kg/m³)</th></tr></thead>
+    <tbody>
+      <tr><td>Capa A</td><td>10</td><td>600</td><td>200</td><td>1800</td></tr>
+      <tr><td>Capa B</td><td>20</td><td>600</td><td>300</td><td>1800</td></tr>
+      <tr><td>Semiespacio</td><td>∞</td><td>1300</td><td>650</td><td>2100</td></tr>
+    </tbody>
+  </table>
+  <div style="display:flex;gap:22pt;align-items:flex-end">
+  <div class="chg" data-tag="Fig. 2 · movida aquí" style="flex:none"><img class="fig" src="fig2.svg" style="width:640pt;height:300pt"></div>
+  <div class="cap" style="margin:0 0 4pt">Figura 2. Perfiles sintéticos de V<sub>s</sub>(z): interfaz capa–semiespacio.<br><br>Dunkin · disba 0.7.0 [4] · modo 0 · 1–60 Hz. Continuidad de desplazamiento y tracción en la interfaz, tracción nula en la superficie y decaimiento en el semiespacio.</div>
+  </div>
+
+  <img class="fig" src="fig3.svg" style="width:896pt;height:750pt;margin-top:10pt">
+  <p class="cap">Figura 3. Dispersión del modo fundamental de Rayleigh. En la transición, v<sub>g</sub> cae por debajo de c<sub>R</sub>. Para A a 10 Hz: 82,0 frente a 270,4 m/s.</p>
+</div>
+
+<!-- ===================== COLUMNA 3 ===================== -->
+<div id="c3" class="col">
+  <div class="lab">03 &nbsp;·&nbsp; INTERPRETACIÓN E INVERSIÓN</div>
+  <h2>Velocidad de fase y de grupo</h2>
+  <p>La fase c<sub>R</sub> = ω/k sigue un punto de fase constante. El grupo v<sub>g</sub> = dω/dk describe la envolvente de un paquete de banda estrecha.</p>
+  <p>k = 2πf/c<sub>R</sub><br>v<sub>g</sub> = c<sub>R</sub> / [1 − (f/c<sub>R</sub>) · dc<sub>R</sub>/df]</p>
+  <p>Entre 1,5 y 59,5 Hz, la discrepancia máxima con el solver fue 1,0 m/s. Al refinar de 0,10 a 0,05 Hz, la estimación de v<sub>g</sub> cambió hasta 0,7 m/s. Las cuatro ramas se mantuvieron continuas.</p>
+
+  <h2>Qué cambia con la frecuencia</h2>
+  <p>1 Hz · c<sub>R</sub> A/B = 596,7 / 589,4 m/s.<br>10 Hz · c<sub>R</sub> A/B = 270,4 / 295,1 m/s.<br>60 Hz · c<sub>R</sub> A/B = 189,5 / 279,8 m/s.</p>
+  <p>En A, Λ = c<sub>R</sub>/f pasa de 596,7 m a 1 Hz a 3,16 m a 60 Hz. La capa de 10 m pasa de ocupar una fracción pequeña de Λ a abarcar varias longitudes de onda.</p>
+  <p>Así disminuye la influencia relativa del semiespacio. La sensibilidad se distribuye en profundidad y depende del perfil y del modo [3].</p>
+
+  <h2>Aplicación con MASW</h2>
+  <div class="flow">
+    <div>Fuente y arreglo de geófonos</div><div class="arr">▾</div>
+    <div>Imagen frecuencia–velocidad</div><div class="arr">▾</div>
+    <div>Selección del modo Rayleigh</div><div class="arr">▾</div>
+    <div>Ajuste de curvas</div><div class="arr">▾</div>
+    <div class="last">Perfil de velocidad V<sub>s</sub>(z)</div>
+  </div>
+  <p class="cap">Figura 4. Flujo conceptual MASW para estimar V<sub>s</sub>(z) a partir de registros de campo. Las curvas de la Fig. 3 proceden de modelos sintéticos [2, 3].</p>
+  <p>El problema directo predice curvas a partir de un perfil. El inverso ajusta un modelo de capas a una curva medida. Varios perfiles pueden explicar una banda limitada [3].</p>
+
+  <h2>Efectos de h y de v<sub>s</sub></h2>
+  <p>Con v<sub>s</sub> fijo en 200 m/s, duplicar h desplaza el mínimo de v<sub>g</sub> de 9,7 a 4,8 Hz.</p>
+  <p>Con h fijo en 10 m, subir v<sub>s</sub> de 200 a 300 m/s eleva c<sub>R</sub> a 60 Hz de 189,5 a 279,8 m/s.</p>
+  <div class="box chg" data-tag="recuadro · movido aquí">
+    <div class="kick">SENSIBILIDAD · CAMBIOS AISLADOS DESDE A</div>
+    <div style="font-size:24pt">c<sub>R</sub> a 10 Hz (m/s) · A: 270,4. Solo h a 20 m: 191,7. Solo v<sub>s</sub> a 300 m/s: 508,9.</div>
+  </div>
+</div>
+
+<div id="concl" class="abs">
+  <h3>CONCLUSIONES</h3>
+  <div class="g">
+    <div><h4>Confinamiento</h4><p>En el semiespacio homogéneo, c<sub>R</sub> &lt; v<sub>s</sub> &lt; v<sub>p</sub> hace positivos a q y s. Los factores exp(−qz) y exp(−sz) confinan el modo.</p></div>
+    <div><h4>Efecto del espesor y de v<sub>s</sub></h4><p>Duplicar h desplaza la transición hacia frecuencias más bajas. Aumentar v<sub>s</sub> de la capa eleva la velocidad de fase a alta frecuencia.</p></div>
+    <div><h4>Estimación de V<sub>s</sub>(z)</h4><p>La dispersión ayuda a restringir velocidades y espesores. La banda medida y la información previa condicionan qué perfiles se pueden distinguir.</p></div>
+  </div>
+</div>
+
+<div id="refs" class="abs">
+  <h3>REFERENCIAS</h3>
+  <div class="g">
+    <div>[1] Rayleigh (1885). On Waves Propagated along the Plane Surface of an Elastic Solid.<br><a>10.1112/plms/s1-17.1.4</a></div>
+    <div>[3] Xia, Miller y Park (1999). Estimation of near-surface shear-wave velocity by inversion of Rayleigh waves.<br><a>10.1190/1.1444578</a></div>
+    <div>[2] Park, Miller y Xia (1999). Multichannel analysis of surface waves.<br><a>10.1190/1.1444590</a></div>
+    <div>[4] Luu. Documentación de disba · versión 0.7.0 · método de Dunkin.<br><a>keurfonluu.github.io/disba/</a></div>
+  </div>
+</div>
+</body>
+</html>
