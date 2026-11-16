@@ -22,7 +22,7 @@ Este proyecto estudia la propagación, dispersión y sensibilidad de las **ondas
 3. **Condición de Frontera Libre y Ecuación Secular:** Imposición de tracción nula en la superficie libre ($\sigma_{zz} = \sigma_{xz} = 0$), obteniendo la ecuación secular para la velocidad de fase $c_R = \omega/k$.
 4. **Relación $c_R < v_S < v_P$ y Dispersión:** Demostración analítica de la existencia y unicidad de la velocidad de Rayleigh, y análisis del efecto del espesor de capa $h$ y su velocidad transversal $v_S$.
 5. **Velocidad de Fase ($c_R$) vs. Velocidad de Grupo ($v_g$):** Cálculo analítico de $v_g = d\omega/dk = c_R / [1 - (f/c_R) dc_R/df]$ y localización precisa de la **fase de Airy** (mínimo de velocidad de grupo).
-6. **Simulación Numérica y Sensibilidad en Profundidad:** Implementación en Python para generar curvas $c_R(f)$ y $v_g(f)$ variando sistemáticamente $h$ y $v_S$, y cálculo de los kernels de sensibilidad en profundidad $\partial c_R / \partial v_S(z, f)$ con su respectiva interpretación física.
+6. **Simulación Numérica y Sensibilidad en Profundidad:** Implementación en Python para generar curvas $c_R(f)$ y $v_g(f)$ de los modelos base y de dos variaciones aisladas de $h$ y $v_S$. El repositorio conserva además resultados de sensibilidad en profundidad y su interpretación física.
 
 ---
 
@@ -33,14 +33,14 @@ Este proyecto estudia la propagación, dispersión y sensibilidad de las **ondas
 ├── README.md                      # Documentación general del proyecto
 ├── requirements.txt               # Dependencias del proyecto (disba, numpy, matplotlib, etc.)
 ├── scripts/
-│   └── dispersion.py              # Script principal de simulación (curvas cR, vg, kernels y reporte)
-├── outputs/                       # Resultados generados por la simulación
-│   ├── 1_modelos_A_vs_B.png       # Comparación cR(f) y vg(f) para Modelo A y Modelo B
-│   ├── 2_variacion_espesor_h.png  # Barrido paramétrico del espesor h (escalamiento f·h)
-│   ├── 3_variacion_velocidad_vs.png # Barrido paramétrico de la velocidad de corte vS
-│   ├── 4_sensibilidad_profundidad.png # Perfiles de kernels y confinamiento en capa vs frecuencia
-│   ├── interpretacion_sensibilidad.md # Reporte formal de interpretación física
-│   └── *.csv                      # Tablas numéricas de dispersión (f, cR, vg)
+│   └── dispersion.py              # Script principal: curvas cR, vg y sensibilidades aisladas
+├── outputs/                       # Resultados versionados y resultados generados
+│   ├── 1_modelos_A_vs_B.png       # Figura versionada del contraste entre los modelos A y B
+│   ├── 2_variacion_espesor_h.png  # Figura versionada de variación del espesor
+│   ├── 3_variacion_velocidad_vs.png # Figura versionada de variación de vS
+│   ├── 4_sensibilidad_profundidad.png # Figura versionada de sensibilidad en profundidad
+│   ├── interpretacion_sensibilidad.md # Interpretación física versionada
+│   └── *.csv                      # Tablas versionadas de dispersión (f, cR, vg)
 ├── maqueta/
 │   ├── maqueta_utec.pdf           # Póster oficial en plantilla horizontal A0 de UTEC
 │   ├── maqueta_utec.png           # Vista previa en alta resolución del póster
@@ -61,7 +61,8 @@ Este proyecto estudia la propagación, dispersión y sensibilidad de las **ondas
 ## 3. Instalación y Ejecución
 
 ### Requisitos Previos:
-- Python 3.10 o superior (compatible con Python 3.14).
+- Python 3.10 o superior.
+- Las versiones concretas de las dependencias están indicadas en `requirements.txt`.
 
 ### Configuración del Entorno:
 
@@ -82,17 +83,20 @@ python scripts/dispersion.py
 
 El script ejecutará automáticamente:
 1. El cálculo de $c_R(f)$ y $v_g(f)$ (1 a 60 Hz) para el **Modelo A** ($h=10$ m, $v_{S1}=200$ m/s) y **Modelo B** ($h=20$ m, $v_{S1}=300$ m/s) sobre un semiespacio rocoso ($v_{S2}=650$ m/s, $v_{P2}=1300$ m/s).
-2. El barrido paramétrico del espesor $h \in \{5, 10, 15, 20, 30\}$ m.
-3. El barrido paramétrico de la velocidad de corte $v_{S1} \in \{150, 200, 250, 300, 400\}$ m/s.
-4. El cálculo de los kernels de sensibilidad en profundidad $\partial c_R / \partial v_S(z, f)$ para frecuencias representativas (3, 6, 10 y 20 Hz).
-5. La exportación de los archivos CSV y figuras en `outputs/`, junto con el reporte `interpretacion_sensibilidad.md`.
+2. El cálculo de dos sensibilidades aisladas desde el Modelo A: cambiar $h$ de 10 m a 20 m y cambiar $v_{S1}$ de 200 m/s a 300 m/s.
+3. La exportación de cuatro archivos CSV y tres figuras en `outputs/`. Los nombres de las figuras generadas por este script son `modelos_A_vs_B.png`, `sensibilidad_h.png` y `sensibilidad_vs.png`.
+
+El script no realiza un barrido de varios valores de $h$ o $v_{S1}$, no calcula kernels de sensibilidad en profundidad y no genera `interpretacion_sensibilidad.md`; esos archivos son resultados versionados de análisis previos.
 
 ### Ejecutar la Validación Matemática Independiente:
 
 ```bash
 python verificacion/simbolico.py
-python verificacion/solver_mp.py
+python verificacion/numerico.py
+python verificacion/inv_check.py
 ```
+
+`simbolico.py`, `numerico.py` e `inv_check.py` imprimen sus comprobaciones en la terminal. `numerico.py` importa el solver independiente de alta precisión definido en `solver_mp.py`; ejecutar `solver_mp.py` directamente no ejecuta una comprobación.
 
 ---
 
