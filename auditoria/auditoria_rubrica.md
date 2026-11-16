@@ -280,7 +280,7 @@ Los cambios 2, 6, 7, 8, 9 y 10 suman unas 6–8 líneas. Para que entren sin per
 ## 8. Estado: cambios aplicados a `maqueta/maqueta_utec.pdf`
 | # | Estado | Dónde quedó |
 |---|---|---|
-| 1 | ⏳ **Pendiente: faltan los nombres de los integrantes** | Franja negra |
+| 1 | ✅ | Franja negra: Danna Gala · Ary Sanchez · Eduardo Salvador · Mendoza Gracia |
 | 2 | ✅ | Junto a la ec. (9): qué informa c_R y qué informa v_g |
 | 3 | ✅ | Pie de la Fig. 2: "v_s, v_p en m/s" |
 | 4 | ✅ | Fig. 1 con rótulos principales ≥ 18 pt; solo los subíndices quedan por debajo |
