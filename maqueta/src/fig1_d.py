@@ -98,9 +98,9 @@ X0, L = 150, 330.0          # 1 Λ = 330 unidades, igual en x y en z
 Z0 = cy + 62
 ZMAX = 0.58
 amp = 18.0 / W0
-t(X0 - 8, cy + 30, "Superficie libre z = 0", 17, anchor="start")
-arrow(X0 + L - 110, cy + 24, X0 + L, cy + 24)
-t(X0 + L - 116, cy + 30, "+x", 17, anchor="end")
+t(X0 - 8, cy + 36, "Superficie libre", 17, anchor="start")
+arrow(X0 + L - 110, cy + 31, X0 + L, cy + 31)
+t(X0 + L - 116, cy + 37, "+x", 17, anchor="end")
 o.append(f'<rect x="{X0 - 8}" y="{Z0}" width="{L + 16}" height="{ZMAX * L + 10}" fill="{LIGHT}"/>')
 xx = np.linspace(-0.02, 1.02, 300)
 ux, uz, _, _ = disp(xx, 0.0)

@@ -276,3 +276,23 @@ No hay definiciones incorrectas ni generalizaciones inválidas; la frase "0,87�
 | 11 | C2 | Actualizar el guion con las ubicaciones del formato horizontal y repartir una caja por expositor | `exposicion/guion.md` |
 
 Los cambios 2, 6, 7, 8, 9 y 10 suman unas 6–8 líneas. Para que entren sin perder legibilidad: llevar el cambio 8 a la línea de "Simulación" que ya existe, y los cambios 9 y 10 al recuadro de Limitaciones.
+
+## 8. Estado: cambios aplicados a `maqueta/maqueta_utec.pdf`
+| # | Estado | Dónde quedó |
+|---|---|---|
+| 1 | ⏳ **Pendiente: faltan los nombres de los integrantes** | Franja negra |
+| 2 | ✅ | Junto a la ec. (9): qué informa c_R y qué informa v_g |
+| 3 | ✅ | Pie de la Fig. 2: "v_s, v_p en m/s" |
+| 4 | ✅ | Fig. 1 con rótulos principales ≥ 18 pt; solo los subíndices quedan por debajo |
+| 5 | ✅ | Bajo el QR: "Figuras: elaboración propia (Python, disba)" |
+| 6 | ✅ | Línea "Supuestos" de Metodología: k, ω = 2πf y Λ = c_R/f con unidades |
+| 7 | ✅ | Recuadro "Analogía óptica" en Conclusiones |
+| 8 | ✅ | Supuestos (lineal, isótropo, por capas, onda plana armónica, ∂_y = 0, z ≥ 0) e interfaz soldada en "Simulación" |
+| 9 | ✅ | "Fuentes de error" en Conclusiones |
+| 10 | ✅ | "Extensiones" en Conclusiones |
+| 11 | ✅ | `exposicion/guion.md`: ubicaciones del formato horizontal, un expositor por caja, analogía y frase de fase frente a grupo |
+
+**Ajustes de tamaño para que todo entre:**
+- Metodología pasó a 24 pt.
+- La Fig. 6 quedó en 400 pt de ancho.
+- Las fuentes de error, las limitaciones y las extensiones están en 20 pt.

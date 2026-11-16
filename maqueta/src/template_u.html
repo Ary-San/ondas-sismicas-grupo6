@@ -39,7 +39,7 @@ p .katex, li .katex { white-space: nowrap; }
 .box { position: absolute; background: #fff; border: 2pt solid var(--frame); display: flex; flex-direction: column; }
 .box > .hd { height: 140pt; background: var(--cyan); color: #fff; font-family: 'Arimo', sans-serif; font-size: 50pt; line-height: 140pt; padding-left: 70pt; flex: none; }
 .box > .hd.dark { background: #000; }
-.box > .in { flex: 1; padding: 26pt 40pt 20pt; overflow: hidden; }
+.box > .in { flex: 1; padding: 18pt 40pt 12pt; overflow: hidden; }
 #intro { left: 0; top: 477pt; width: 1099pt; height: 812pt; }
 #metod { left: 0; top: 1317pt; width: 1099pt; height: 1035pt; }
 #result { left: 1163pt; top: 477pt; width: 1108pt; height: 1875pt; }
@@ -56,10 +56,11 @@ p { margin: 0 0 6pt; }
 .row > .fig { flex: none; }
 .row > .txt { flex: 1; }
 img.fig, svg.fig { display: block; }
-.cols2 { column-count: 2; column-gap: 40pt; column-fill: auto; height: 100%; font-size: 25pt; line-height: 33pt; }
+.cols2 { column-count: 2; column-gap: 40pt; column-fill: auto; height: 100%; font-size: 24pt; line-height: 31.5pt; }
+.cols2 .katex-display > .katex { font-size: 0.95em; }
 .cols2 .katex-display, .cols2 h3, .cols2 .keep { break-inside: avoid; }
 .cols2 .katex-display { margin: 4pt 0 6pt; }
-.cols2 h3 { font-size: 29pt; line-height: 34pt; margin-top: 10pt; break-after: avoid; }
+.cols2 h3 { font-size: 29pt; line-height: 34pt; margin-top: 5pt; break-after: avoid; }
 ul.tight { list-style: none; }
 ul.tight li { padding-left: 24pt; position: relative; margin-bottom: 4pt; }
 ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--cyan-d); }
@@ -68,14 +69,15 @@ ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--
 .lead { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 38pt; line-height: 44pt; margin-bottom: 14pt; }
 .find { display: grid; grid-template-columns: 250pt 1fr; column-gap: 20pt; align-items: baseline; margin-bottom: 6pt; }
 .find .n { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 56pt; line-height: 60pt; color: var(--cyan-d); white-space: nowrap; }
-.find p { font-size: 29pt; line-height: 38pt; }
+.find p { font-size: 27pt; line-height: 35pt; }
 .find small { font-size: 22pt; color: var(--muted); }
 .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6pt 4pt; margin: 4pt 0 8pt; font-size: 23pt; line-height: 27pt; font-weight: 700; }
 .flow span.c { background: #E5F7FF; border: 1.5pt solid var(--cyan); padding: 6pt 10pt; border-radius: 4pt; }
 .flow span.c.last { background: var(--cyan); color: #fff; }
 .flow span.a { color: var(--cyan-d); }
-.lim { font-size: 22pt; line-height: 28pt; color: var(--muted); border-top: 2pt solid #E5E8EA; padding-top: 8pt; margin-top: 10pt; }
+.lim { font-size: 20pt; line-height: 25pt; color: var(--muted); border-top: 2pt solid #E5E8EA; padding-top: 8pt; margin-top: 10pt; }
 .lim b { color: var(--sec); }
+.ana { font-size: 22pt; line-height: 28pt; background: #E5F7FF; border-left: 6pt solid var(--cyan); padding: 8pt 12pt; margin: 6pt 0 8pt; }
 
 /* referencias */
 .refs { display: grid; grid-template-columns: 1fr 190pt; column-gap: 24pt; height: 100%; }
@@ -116,13 +118,12 @@ ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--
 
 <!-- ===== METODOLOGÍA ===== -->
 <div id="metod" class="box"><div class="hd">METODOLOGÍA</div><div class="in" id="metod-in"><div class="cols2">
-  <h3>Dos potenciales</h3>
-  <p>Navier (λ, μ: Lamé; ρ: densidad):</p>
+    <p><b>Supuestos:</b> elástico lineal, isótropo, homogéneo por capas en z ≥ 0 (z hacia abajo); onda plana armónica; ∂<sub>y</sub> = 0. λ, μ (Lamé, Pa); ρ (kg/m³); k: número de onda horizontal (m⁻¹); ω = 2πf (rad/s); Λ = c<sub>R</sub>/f (m). Navier:</p>
   <M>\rho\,\partial_t^2\mathbf u=(\lambda+2\mu)\nabla(\nabla\!\cdot\mathbf u)-\mu\nabla\times\nabla\times\mathbf u\tag{1}</M>
   <p><m>\mathbf u=\nabla\phi+\nabla\times(\psi\hat{\mathbf y})</m>: φ cambia el volumen (P), ψ solo cizalla (SV) [2]:</p>
   <M>\begin{aligned}&\partial_t^2\phi=v_p^2\nabla^2\phi,\quad \partial_t^2\psi=v_s^2\nabla^2\psi\\[6pt]&v_p=\sqrt{(\lambda+2\mu)/\rho},\quad v_s=\sqrt{\mu/\rho}\end{aligned}\tag{2}</M>
   <M>\begin{aligned}&\phi=Ae^{-qz}E,\ \ \psi=Be^{-sz}E,\ \ E=e^{i(kx-\omega t)}\\[6pt]&q^2=k^2-\omega^2/v_p^2,\quad s^2=k^2-\omega^2/v_s^2\end{aligned}\tag{3}</M>
-  <p>Medio en z ≥ 0 (z hacia abajo). Con <m>u_x=\partial_x\phi-\partial_z\psi</m>, <m>u_z=\partial_z\phi+\partial_x\psi</m> y B = −2ikqA/(k²+s²), por (7):</p>
+  <p>Con <m>u_x=\partial_x\phi-\partial_z\psi</m>, <m>u_z=\partial_z\phi+\partial_x\psi</m> y B = −2ikqA/(k²+s²), por (7):</p>
   <M>u_x=ikA\big[e^{-qz}-\tfrac{2qs}{k^2+s^2}e^{-sz}\big]E\tag{4}</M>
   <M>u_z=-qA\big[e^{-qz}-\tfrac{2k^2}{k^2+s^2}e^{-sz}\big]E\tag{5}</M>
   <p>El factor <b>i</b> desfasa u<sub>x</sub> 90°: la órbita es una <b>elipse</b>; a 0,17 Λ, u<sub>x</sub> = 0 y el giro se invierte.</p>
@@ -133,14 +134,14 @@ ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--
   <M>\underbrace{\begin{pmatrix}k^2+s^2 & -2iks\\ -2ikq & -(k^2+s^2)\end{pmatrix}}_{M}\begin{pmatrix}A\\ B\end{pmatrix}=\mathbf 0\tag{7}</M>
   <p>(A, B) ≠ (0, 0) ⇔ det M = 0 ⇔ <m>(k^2+s^2)^2=4k^2qs</m>. Entre k⁴:</p>
   <M>\begin{aligned}&(2-\xi^2)^2-4\sqrt{1-\xi^2}\sqrt{1-\beta\xi^2}=0\\[6pt]&\xi=c_R/v_s,\quad \beta=(v_s/v_p)^2,\quad c_R=\omega/k\end{aligned}\tag{8}</M>
-  <p>Raíz en 0 &lt; ξ &lt; 1 (el lado izquierdo va de &lt; 0 a +1), única si 0 &lt; β &lt; 3/4: c<sub>R</sub> = 606,1 m/s. Sin ω en (8): sin dispersión.</p>
+  <p>Raíz única en 0 &lt; ξ &lt; 1 si 0 &lt; β &lt; 3/4 (el lado izquierdo va de &lt; 0 a +1): c<sub>R</sub> = 606,1 m/s; sin ω, sin dispersión.</p>
   <h3>¿Por qué c<sub>R</sub> &lt; v<sub>s</sub> &lt; v<sub>p</sub>?</h3>
   <ul class="tight">
     <li><m>v_p^2/v_s^2=2+\lambda/\mu</m>; la estabilidad (μ, K &gt; 0) da v<sub>p</sub>/v<sub>s</sub> &gt; 1,15.</li>
     <li>Con c &gt; v<sub>s</sub>, s es imaginaria y SV radia hacia abajo. La superficie libre cede: c<sub>R</sub> ≈ 0,87–0,96 v<sub>s</sub> según ν.</li>
   </ul>
   <h3>Simulación</h3>
-  <p>Dunkin [4] con disba 0.7.0 [5], modo 0, 1–60 Hz (Fig. 2). Control: semiespacio solo = 606,1 m/s, como (8). v<sub>g</sub> con (9); inversión con (10).</p>
+  <p>Capa sobre semiespacio (Fig. 2) con interfaz soldada: u y tracción continuas en z = h. Dunkin [4] con disba 0.7.0 [5], modo 0, 1–60 Hz; control: semiespacio solo = 606,1 m/s, como (8).</p>
 </div></div></div>
 
 <!-- ===== RESULTADOS ===== -->
@@ -150,14 +151,14 @@ ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--
     <div class="txt">
       <h3>Dos suelos, dos curvas</h3>
       <p>V<sub>s30</sub> = 30/Σ(h<sub>i</sub>/v<sub>si</sub>) es casi igual en A y B (ambos S2 en la E.030 [3]), pero sus curvas son muy distintas: un solo número oculta la estratificación.</p>
-      <p class="cap"><b>Figura 2.</b> Modelos sintéticos; ρ en kg/m³.</p>
+      <p class="cap"><b>Figura 2.</b> Modelos sintéticos: v<sub>s</sub>, v<sub>p</sub> en m/s; ρ en kg/m³.</p>
     </div>
   </div>
   <img class="fig" src="u_dispersion.svg" style="width:1020pt;margin-top:8pt">
   <p class="cap"><b>Figura 3.</b> c<sub>R</sub> va de la velocidad de Rayleigh del semiespacio (606,1 m/s) a la de la capa (189,5 / 279,8). ○ Fase de Airy: 9,6 Hz (A), 6,6 Hz (B).</p>
   <div class="row" style="align-items:center">
     <div style="flex:none;width:470pt"><M>v_g=\frac{c_R}{1-(f/c_R)\,dc_R/df}\tag{9}</M></div>
-    <p class="txt" style="font-size:24pt;line-height:31pt">Como dc<sub>R</sub>/df &lt; 0, v<sub>g</sub> &lt; c<sub>R</sub>. (9) coincide ≤ 0,1 m/s con una referencia de alta precisión; el v<sub>g</sub> interno de disba se desvía hasta 1,1 m/s.</p>
+    <p class="txt" style="font-size:24pt;line-height:31pt">Como dc<sub>R</sub>/df &lt; 0, v<sub>g</sub> &lt; c<sub>R</sub>. <b>c<sub>R</sub></b> es la velocidad de las crestas: la mide MASW y es la que se invierte. <b>v<sub>g</sub></b> es la de la envolvente y la energía: fija los tiempos de llegada y la fase de Airy.</p>
   </div>
   <div class="row" style="margin-top:6pt">
     <img class="fig" src="u_aislados.svg" style="width:500pt">
@@ -179,18 +180,21 @@ ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--
   <div class="find"><div class="n">f · h</div><p>controla la curva: duplicar h baja la transición de 9,6 a 4,8 Hz; v<sub>s</sub> de la capa fija la asíntota <small>(Fig. 4)</small>.</p></div>
   <div class="find"><div class="n">h ≈ 10 m</div><p>se recupera con 3–40 Hz; con f ≥ 15 Hz queda libre: la banda medida decide qué se invierte <small>(Fig. 6)</small>.</p></div>
   <div class="row">
-    <img class="fig" src="u_inversion.svg" style="width:470pt">
-    <div class="txt" style="font-size:24pt;line-height:31pt">
-      <h3 style="font-size:28pt">Inversión de prueba</h3>
+    <img class="fig" src="u_inversion.svg" style="width:400pt">
+    <div class="txt" style="font-size:23pt;line-height:29pt">
+      <h3 style="font-size:27pt;margin-bottom:2pt">Inversión de prueba</h3>
       <M>\chi=\sqrt{\tfrac1N\textstyle\sum_i\big[(c_i^{\rm obs}-c_i^{\rm calc})/\sigma_i\big]^2}\tag{10}</M>
       <p>3–40 Hz: h = 9,5–10,5 m, v<sub>s</sub> = 194–206 m/s. Solo f ≥ 15 Hz: h = 8,5–40 m, sin cota [7].</p>
+      <p class="cap" style="font-size:21pt;line-height:26pt"><b>Figura 6.</b> Región χ ≤ 1,5; A con 2 % de ruido (una realización); 40 m = borde de la rejilla; ★ verdadero.</p>
     </div>
   </div>
-  <p class="cap"><b>Figura 6.</b> Región χ ≤ 1,5; A con 2 % de ruido (una realización); rejilla 0,5 m × 2 m/s; 40 m = borde; ★ modelo verdadero.</p>
+  <p class="ana"><b>Analogía óptica.</b> Con q, s &gt; 0 los campos son <b>evanescentes</b>, como la onda evanescente en la reflexión total interna; la capa actúa como una <b>guía de onda</b> cuyo modo depende de h/Λ, igual que en una guía óptica: de ahí la dispersión.</p>
   <h3>Aplicación: MASW y V<sub>s30</sub></h3>
   <div class="flow"><span class="c">Geófonos + fuente</span><span class="a">→</span><span class="c">Imagen f–c</span><span class="a">→</span><span class="c">Modo 0</span><span class="a">→</span><span class="c">Ajuste (10)</span><span class="a">→</span><span class="c last">V<sub>s</sub>(z)</span></div>
-  <p>MASW [8] mide c<sub>R</sub>(f); la inversión [6] da V<sub>s</sub>(z) y V<sub>s30</sub> para la E.030 [3]. Uso potencial: microzonificación urbana (Lima).</p>
-  <div class="lim"><b>Limitaciones</b> · Medio 1D elástico sin atenuación · solo modo fundamental · datos sintéticos · v<sub>p</sub>, ρ fijos.</div>
+  <p style="font-size:25pt;line-height:32pt">MASW [8] mide c<sub>R</sub>(f); la inversión [6] da V<sub>s</sub>(z) y V<sub>s30</sub> para la E.030 [3]: microzonificación urbana (Lima).</p>
+  <div class="lim"><b>Fuentes de error</b> · numéricas: c<sub>R</sub> ≤ 0,0003 m/s y v<sub>g</sub> ≤ 0,1 m/s frente a un solver independiente (el v<sub>g</sub> interno de disba, hasta 1,1 m/s) · inversión: ruido del 2 % y rejilla 0,5 m × 2 m/s.<br>
+  <b>Limitaciones</b> · medio 1D elástico sin atenuación · solo modo fundamental · datos sintéticos · v<sub>p</sub>, ρ fijos.<br>
+  <b>Extensiones</b> · modos superiores · ondas Love · atenuación (Q) · inversión de un registro MASW real.</div>
 </div></div>
 
 <!-- ===== REFERENCIAS ===== -->
@@ -205,7 +209,7 @@ ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--
     <li>[7] Foti, S., Lai, C. G., Rix, G. J. y Strobbia, C. (2014). <i>Surface Wave Methods for Near-Surface Site Characterization</i>. CRC Press. <span class="d">doi:10.1201/b17268</span></li>
     <li>[8] Park, C. B., Miller, R. D. y Xia, J. (1999). Multichannel analysis of surface waves. <i>Geophysics</i>, 64(3), 800–808. <span class="d">doi:10.1190/1.1444590</span></li>
   </ol>
-  <div class="qr"><img src="qr_repo.png" alt="QR">Código y desarrollo</div>
+  <div class="qr"><img src="qr_repo.png" alt="QR">Código y desarrollo<br>Figuras: elaboración propia (Python, disba)</div>
 </div></div></div>
 </body>
 </html>
