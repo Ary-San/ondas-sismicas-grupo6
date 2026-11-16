@@ -38,9 +38,10 @@ Si exponen varios, el reparto natural es una persona por columna (Columna 1 / Co
 > clasifica igual (S2), pero sus curvas son muy distintas. Un solo número oculta la estratificación.
 > [Fig. 3] Calculamos las curvas con disba, que usa el método de Dunkin. A baja frecuencia c_R tiende a
 > 606 m/s, la velocidad de Rayleigh del semiespacio. A alta frecuencia tiende a la de la capa: 189,5 o
-> 279,8 m/s. La velocidad de grupo cae por debajo de la de fase y tiene un mínimo, la **fase de Airy**.
-> [Fig. 4] Si cambiamos un parámetro a la vez: duplicar h **divide por 2** la frecuencia de transición, porque
-> c_R depende solo de f·h. Subir v_s eleva la asíntota de alta frecuencia.
+> 279,8 m/s. La velocidad de grupo cae por debajo de la de fase y tiene un mínimo, la **fase de Airy**:
+> **9,6 Hz** en A y **6,6 Hz** en B.
+> [Fig. 4] Si cambiamos un parámetro a la vez: duplicar h **divide por 2** la frecuencia de transición
+> (Airy de **9,6 a 4,8 Hz**), porque c_R depende solo de f·h. Subir v_s eleva la asíntota de alta frecuencia.
 
 ### 4. Qué profundidad ve cada frecuencia — 45 s · [Columna 3, Fig. 5]
 > Esta es la respuesta a nuestra pregunta. Calculamos cuánto cambia c_R si cambiamos v_s a cada profundidad.
@@ -67,7 +68,7 @@ Si exponen varios, el reparto natural es una persona por columna (Columna 1 / Co
 |---|---|---|
 | Tras el bloque 1 | Por qué la elipse: en (4) aparece el factor *i*, así que u_x va 90° desfasado de u_z. H/V = 0,64 en superficie. | +40 s |
 | Tras el bloque 2 | Derivar la matriz (7) en la pizarra: sustituir (3) en (6) en z = 0. | +60 s |
-| Tras el bloque 3 | Fase frente a grupo: c_R sigue un punto de fase y v_g la envolvente. La ec. (9) coincide con el solver ≤ 1,0 m/s. | +45 s |
+| Tras el bloque 3 | Fase frente a grupo: c_R sigue un punto de fase y v_g la envolvente. La ec. (9) coincide con una referencia de alta precisión en ≤ 0,1 m/s; el v_g interno de disba se desvía hasta 1,1 m/s en el mínimo, por eso usamos (9). | +45 s |
 | Tras el bloque 3 | Escala f·h: la única longitud del problema es h, así que c_R depende de h/Λ. | +30 s |
 | Tras el bloque 5 | Limitaciones: medio 1D elástico sin atenuación, solo modo fundamental, datos sintéticos, v_p y ρ fijos. | +30 s |
 
@@ -81,7 +82,8 @@ Si exponen varios, el reparto natural es una persona por columna (Columna 1 / Co
 | ¿Y por qué v_s < v_p? | v_p²/v_s² = 2 + λ/μ. La estabilidad del material (μ > 0 y módulo volumétrico K = λ + 2μ/3 > 0) exige v_p/v_s > √(4/3) ≈ 1,15. |
 | ¿Por qué el giro es retrógrado? | Sale de (4)–(5): en la cresta de la órbita superficial la partícula se mueve hacia −x. u_x cambia de signo a 0,17 Λ, y debajo el giro es prógrado. |
 | ¿Por qué no hay dispersión en el semiespacio? | No hay ninguna longitud característica: la ec. (8) no depende de ω, así que c_R es constante y v_g = c_R. |
-| ¿Qué es la fase de Airy? | El mínimo de v_g. Muchas frecuencias viajan con casi la misma velocidad de grupo y llegan juntas, lo que produce una llegada tardía de gran amplitud. |
+| ¿Qué es la fase de Airy? | El mínimo de v_g (9,6 Hz en A, 6,6 Hz en B). Muchas frecuencias viajan con casi la misma velocidad de grupo y llegan juntas, lo que produce una llegada tardía de gran amplitud. |
+| ¿Por qué 9,6 Hz y no 9,7? | El v_g interno de disba usa diferencias finitas y está sesgado en el mínimo (77,6 m/s a 9,66 Hz). Con la ec. (9) y una referencia de alta precisión, el mínimo real es 76,5 m/s a 9,65 Hz. |
 | ¿Qué significa el 98 %? | Es la fracción de ∂c_R/∂v_s(z) acumulada dentro de la capa de 10 m: cuánto de la sensibilidad de c_R viene de esos 10 m. |
 | ¿Por qué la inversión no es única? | Con solo f ≥ 15 Hz casi toda la sensibilidad está en la capa: se fija v_s, pero no se "ve" dónde termina la capa. |
 | ¿Por qué χ ≤ 1,5? | Es el criterio de ajuste aceptable que elegimos: error medio ≤ 1,5 σ, con σ = 2 % de c_R. Con χ ≤ 1 la región es más chica, pero la conclusión no cambia. |
