@@ -296,3 +296,27 @@ Los cambios 2, 6, 7, 8, 9 y 10 suman unas 6–8 líneas. Para que entren sin per
 - Metodología pasó a 24 pt.
 - La Fig. 6 quedó en 400 pt de ancho.
 - Las fuentes de error, las limitaciones y las extensiones están en 20 pt.
+
+---
+
+## 9. Reauditoría de la versión final (`maqueta/maqueta_utec.pdf`)
+
+**Verificación en el PDF.** Se extrajo el texto del PDF y se comprobó que los 11 cambios de §7 están presentes. También se confirmó que la fase de Airy figura como "9,6 Hz" en todas partes y que no queda ningún "9,7".
+
+**Tamaños medidos:**
+- Cuerpo: 23–29 pt.
+- Textos secundarios (referencias, fuentes de error): 20 pt.
+- Rótulos de figuras: ≥ 18 pt; solo los subíndices son más chicos.
+
+**Volumen:** ~6 600 caracteres de texto visible.
+
+| Criterio | Antes | Ahora | Evidencia | Qué falta |
+|---|---:|---:|---|---|
+| 1. Contenido mínimo (8) | 6,0 | **6,0 estricto → 8,0 con 2 retoques** | Actividades 1–6 y entregable completos; unidades; Fig. 1 legible; crédito de las figuras; nombres | (a) Referencias acortadas al pasar a la plantilla: [3] dice solo "MVCS" y [5] no tiene el título completo de disba. (b) El formato de los nombres no es uniforme: tres van nombre-apellido y "Mendoza Gracia" parece apellido-nombre. Son las "1–2 imprecisiones menores" del descriptor Logrado. |
+| 2. Exposición (2) | — | — | Guion por caja, con 4 expositores y núcleo de 5 min | Depende de la exposición |
+| 3. Conceptos (3) | 2,5 | **3,0** | Variables con unidades (k, ω, Λ, λ, μ, ρ); condiciones (lineal, isótropo, z ≥ 0, ∂_y = 0); analogía óptica (onda evanescente y guía de onda); límites del régimen (asíntotas y limitaciones) | — |
+| 4. Modelado (3) | 2,5 | **3,0** | Ecuaciones (1)–(10) con derivación resumida; supuestos explícitos con interfaz soldada; validez y limitaciones; notación verificada | — |
+| 5. Profundidad (4) | 3,0 | **4,0 (el póster lo permite)** | Casos límite, órdenes de magnitud, fuentes de error, aplicación (MASW, E.030), comparaciones (A/B y cambios aislados) y extensiones | La nota final depende de las respuestas orales (§6) |
+| **Total del póster (sin criterio 2)** | **14,0** | **16,0 estricto · 18,0 con los 2 retoques** | | |
+
+**Riesgo no medible:** la Metodología, a 24 pt con 10 ecuaciones, es densa. Un evaluador podría verla como "texto excesivo". Está mitigado, porque todo es contenido que exige el enunciado y la exposición no debe leerla.
