@@ -1,99 +1,131 @@
-# Ondas sísmicas superficiales — Grupo 6 (Óptica y Ondas, UTEC)
+# Ondas Sísmicas Superficiales: Modos de Rayleigh, Dispersión e Inversión del Subsuelo
 
-Proyecto: **Ondas sísmicas superficiales: modos de Rayleigh, dispersión e inversión del subsuelo**
-Docentes: Marco Cuyubamba y Eduardo Castillo
+**Universidad de Ingeniería y Tecnología (UTEC)**  
+**Curso:** Óptica y Ondas (2026-1) — Trabajo Dirigido 2 (TD2)  
+**Grupo 6:**  
+- Danna Gala  
+- Ary Sanchez  
+- Eduardo Guevara  
+- Mendoza Gracia  
 
-## Póster
+**Docentes:** Marco Cuyubamba y Eduardo Castillo  
 
-- Resultado actual (Canva): https://www.canva.com/design/DAHa8PVsbuA/o3pMXsLm-Zl38e6yMF44YA/edit
-- PDF de referencia: `poster_A0.pdf` (841×1189 mm, fuente Source Sans 3 — ya verificado)
+---
 
-## Estado del póster (revisado)
+## 1. Descripción del Proyecto
 
-Cobertura de las 6 actividades obligatorias del enunciado: completa, salvo un punto parcial.
+Este proyecto estudia la propagación, dispersión y sensibilidad de las **ondas sísmicas superficiales de Rayleigh** en medios elásticos estratificados, y su aplicación en la caracterización geotécnica mediante el método de Análisis Multicanal de Ondas Superficiales (**MASW**) y la estimación de $V_{s30}$ conforme a la **Norma Técnica E.030 (Diseño Sismorresistente)** de Perú.
 
-| # | Actividad | Estado |
-|---|---|---|
-| 1 | P, S, Rayleigh + esquema | ✅ |
-| 2 | Potenciales escalar/vectorial → vP, vS | ✅ |
-| 3 | Condiciones de frontera → ecuación secular | ✅ |
-| 4 | Por qué cR<vS<vP; variación con h y vS | ⚠️ se usa la desigualdad pero no se justifica por qué se cumple |
-| 5 | vg vs vf | ✅ (con validación cuantitativa contra el solver `disba`) |
-| 6 | Simulación cR(f), vg(f) variando h y vS | ✅ (Modelo A vs Modelo B) |
+### Objetivos y Actividades Cubiertas:
+1. **Ondas P, S y Rayleigh:** Análisis de ondas de cuerpo longitudinales (P) y transversales (S) frente a las ondas superficiales de Rayleigh, modelando sus órbitas elípticas retrógradas superficiales y prógradas en profundidad, y su decaimiento exponencial ($\sim 1\Lambda$).
+2. **Ecuación de Navier y Potenciales de Helmholtz:** Desacoplamiento de la ecuación de movimiento en potenciales escalar $\phi$ y vectorial $\psi$, deduciendo las velocidades $v_P = \sqrt{(\lambda+2\mu)/\rho}$ y $v_S = \sqrt{\mu/\rho}$.
+3. **Condición de Frontera Libre y Ecuación Secular:** Imposición de tracción nula en la superficie libre ($\sigma_{zz} = \sigma_{xz} = 0$), obteniendo la ecuación secular para la velocidad de fase $c_R = \omega/k$.
+4. **Relación $c_R < v_S < v_P$ y Dispersión:** Demostración analítica de la existencia y unicidad de la velocidad de Rayleigh, y análisis del efecto del espesor de capa $h$ y su velocidad transversal $v_S$.
+5. **Velocidad de Fase ($c_R$) vs. Velocidad de Grupo ($v_g$):** Cálculo analítico de $v_g = d\omega/dk = c_R / [1 - (f/c_R) dc_R/df]$ y localización precisa de la **fase de Airy** (mínimo de velocidad de grupo).
+6. **Simulación Numérica y Sensibilidad en Profundidad:** Implementación en Python para generar curvas $c_R(f)$ y $v_g(f)$ variando sistemáticamente $h$ y $v_S$, y cálculo de los kernels de sensibilidad en profundidad $\partial c_R / \partial v_S(z, f)$ con su respectiva interpretación física.
 
-Pendientes señalados en conversación previa:
-- Nombres de los integrantes (placeholder en el póster).
-- Reforzar la justificación de `cR < vS < vP` (actividad 4).
+---
 
-### Maqueta con las correcciones de la Etapa A
+## 2. Estructura del Repositorio
 
-`maqueta/maqueta_etapaA.pdf` (A0) aplica las correcciones obligatorias de la auditoría:
-Navier → vp, vs; componentes ux, uz y la elipse; σ en función de los potenciales y la matriz M;
-justificación de cR < vs < vp; Fig. 1 nueva calculada con las ecs. (4)–(5) (`maqueta/fig1_rayleigh.svg`).
-`maqueta_etapaA_anotada.pdf` marca cada cambio. Pendiente: nombres de integrantes y confirmar "TEMA 37"
-(no figura en el enunciado).
-
-Regenerar: `cd maqueta/src && npm install && cp ../../assets/qr_repo.png . && python3 fig1.py > fig1.svg && node build.mjs`
-
-### Maqueta con las Etapas B y C
-
-`maqueta/maqueta_etapaBC.pdf` (A0) agrega a la Etapa A:
-- **Figuras nuevas** (`maqueta/figuras_bc/`, generadas con `src/figuras.py`): modelo de capas con Vs30, dispersión en escala log con asíntotas y fase de Airy, cambios aislados de h y vs, kernels de sensibilidad y mapa de una inversión de prueba.
-- **Tipografía:** cuerpo de 30 pt y títulos de 46 pt.
-- **Contenido:** conclusión que responde la pregunta, Vs30 con la Norma E.030, limitaciones y referencias completas y verificadas.
-
-Las cifras citadas están en `src/numeros.json`.
-
-Regenerar: además de lo de la Etapa A, descargar Source Sans 3 (TTF) en `src/ttf/` y correr `python3 figuras.py && node build_bc.mjs`.
-
-### Maqueta en la plantilla oficial de UTEC (versión para entregar)
-
-`maqueta/maqueta_utec.pdf` es el póster en el formato de la plantilla del curso:
-- **Formato:** A0 horizontal, banda celeste #01BEFF con el logo UTEC, franja negra con integrantes y afiliación, títulos en Arial (aquí Arimo, su equivalente libre) y cuerpo en Open Sans.
-- **Secciones:** Introducción, Metodología, Resultados, Conclusiones y Referencias bibliográficas.
-- **Contenido:** el de la versión B+C completa, con las correcciones de la auditoría.
-- **Figuras:** en `maqueta/figuras_utec/`, generadas con `src/figuras_u.py`.
-
-Para regenerar: `python3 src/figuras_u.py` y `node src/build_u.mjs`. Hace falta descargar Open Sans y Arimo en `src/ttf/`.
-
-### Maqueta estética
-
-`maqueta/maqueta_estetica.pdf` parte de la versión B+C corregida y le cambia la presentación:
-- **Columna 1:** la teoría como una escalera de cuatro pasos, con la ecuación secular destacada. El desarrollo completo está en `maqueta/derivacion_completa.md`.
-- **Títulos:** cada sección se titula con su conclusión, y los pies de figura empiezan con una línea "Lectura:".
-- **Banda protagonista:** los kernels de sensibilidad en cuatro paneles cruzan las columnas 2 y 3.
-- **Cabecera:** lleva una banda con la onda de Rayleigh calculada.
-- **Conclusión:** cada cifra remite a la figura que la respalda.
-
-Para regenerarla: `python3 src/figuras_d.py`, `python3 src/header_wave.py > header_wave.svg`, `FS=1.16 python3 src/fig1_d.py` y `node src/build_d.mjs`.
-
-### QR del póster
-
-`assets/qr_repo.png` apunta a este repositorio (`https://github.com/Ary-San/ondas-sismicas-grupo6`),
-donde está el script de simulación (`scripts/dispersion.py`) que generó las curvas de dispersión
-del póster. Insertarlo en una esquina del póster (p. ej. junto a las referencias).
-
-## Script de simulación
-
-`scripts/dispersion.py` usa `disba` (método de Dunkin) para generar las curvas de dispersión
-del modo fundamental de Rayleigh, `cR(f)` y `vg(f)` (1–60 Hz), para:
-
-- **Modelo A**: capa de 10 m, vp=600, vs=200, ρ=1800 sobre semiespacio vp=1300, vs=650, ρ=2100.
-- **Modelo B**: capa de 20 m, vp=600, vs=300, ρ=1800 (mismo semiespacio).
-- **Sensibilidad aislada (solo h)**: Modelo A con h=20 m (vS sin cambiar).
-- **Sensibilidad aislada (solo vS)**: Modelo A con vS=300 m/s (h sin cambiar).
-
-Uso:
-
-```bash
-pip install -r requirements.txt
-python3 scripts/dispersion.py
+```text
+.
+├── README.md                      # Documentación general del proyecto
+├── requirements.txt               # Dependencias del proyecto (disba, numpy, matplotlib, etc.)
+├── scripts/
+│   └── dispersion.py              # Script principal de simulación (curvas cR, vg, kernels y reporte)
+├── outputs/                       # Resultados generados por la simulación
+│   ├── 1_modelos_A_vs_B.png       # Comparación cR(f) y vg(f) para Modelo A y Modelo B
+│   ├── 2_variacion_espesor_h.png  # Barrido paramétrico del espesor h (escalamiento f·h)
+│   ├── 3_variacion_velocidad_vs.png # Barrido paramétrico de la velocidad de corte vS
+│   ├── 4_sensibilidad_profundidad.png # Perfiles de kernels y confinamiento en capa vs frecuencia
+│   ├── interpretacion_sensibilidad.md # Reporte formal de interpretación física
+│   └── *.csv                      # Tablas numéricas de dispersión (f, cR, vg)
+├── maqueta/
+│   ├── maqueta_utec.pdf           # Póster oficial en plantilla horizontal A0 de UTEC
+│   ├── maqueta_utec.png           # Vista previa en alta resolución del póster
+│   ├── maqueta_utec_ecuaciones.pdf# Variante del póster con subcolumnas de ecuaciones
+│   ├── derivacion_completa.md     # Derivación matemática formal paso a paso
+│   └── figuras_utec/              # Figuras vectoriales (SVG) incorporadas en el póster
+├── exposicion/
+│   └── guion.md                   # Guion estructurado para la presentación oral del equipo
+└── verificacion/                  # Suite de validación matemática y física independiente
+    ├── solver_mp.py               # Solver de alta precisión (matriz 6x6 en mpmath, sin disba)
+    ├── simbolico.py               # Comprobación analítica con SymPy de las ecs. (1)–(8)
+    ├── numerico.py                # Contraste cuantitativo entre métodos
+    └── inv_check.py               # Verificación de unicidad e inversión
 ```
 
-Genera en `outputs/`: un CSV por modelo (`f_Hz,cR_mps,vg_mps`, malla de 0,05 Hz; vg por la ec. (9) del póster) y tres figuras
-PNG (Modelo A vs B, sensibilidad a `h`, sensibilidad a `vS`) listas para comparar con los
-paneles del póster o reemplazarlos si hace falta.
+---
 
-## Requisitos del curso
+## 3. Instalación y Ejecución
 
-Ver el documento original `TD2_Teo11_Proyectos&Grupos.pdf` (Grupo 6, página 6) para el enunciado completo.
+### Requisitos Previos:
+- Python 3.10 o superior (compatible con Python 3.14).
+
+### Configuración del Entorno:
+
+```bash
+# Crear y activar entorno virtual
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+```
+
+### Ejecutar la Simulación:
+
+```bash
+python scripts/dispersion.py
+```
+
+El script ejecutará automáticamente:
+1. El cálculo de $c_R(f)$ y $v_g(f)$ (1 a 60 Hz) para el **Modelo A** ($h=10$ m, $v_{S1}=200$ m/s) y **Modelo B** ($h=20$ m, $v_{S1}=300$ m/s) sobre un semiespacio rocoso ($v_{S2}=650$ m/s, $v_{P2}=1300$ m/s).
+2. El barrido paramétrico del espesor $h \in \{5, 10, 15, 20, 30\}$ m.
+3. El barrido paramétrico de la velocidad de corte $v_{S1} \in \{150, 200, 250, 300, 400\}$ m/s.
+4. El cálculo de los kernels de sensibilidad en profundidad $\partial c_R / \partial v_S(z, f)$ para frecuencias representativas (3, 6, 10 y 20 Hz).
+5. La exportación de los archivos CSV y figuras en `outputs/`, junto con el reporte `interpretacion_sensibilidad.md`.
+
+### Ejecutar la Validación Matemática Independiente:
+
+```bash
+python verificacion/simbolico.py
+python verificacion/solver_mp.py
+```
+
+---
+
+## 4. Síntesis de Resultados y Física de la Onda
+
+### A. Escalamiento por Espesor de Capa ($f \cdot h$)
+En un suelo constituido por una capa sobre un semiespacio, la única dimensión longitudinal intrínseca es el espesor $h$. Como consecuencia directa, la dispersión está gobernada por el producto adimensional $f \cdot h$:
+- Duplicar el espesor de la capa ($10\text{ m} \to 20\text{ m}$) divide a la mitad la frecuencia de transición.
+- La **fase de Airy** (mínimo de velocidad de grupo) ocurre a **9.65 Hz** para $h=10$ m, y se desplaza a **4.83 Hz** para $h=20$ m.
+
+### B. Control Asintótico por la Velocidad $v_S$
+- **Alta frecuencia ($f \to \infty$, $\Lambda \ll h$):** La longitud de onda es pequeña en comparación con el espesor de la capa; la onda queda confinada en ella y su velocidad tiende a la velocidad de Rayleigh de la capa:
+  $$c_R \to \xi_1 v_{S1} \approx 0.947 \, v_{S1}$$
+- **Baja frecuencia ($f \to 0$, $\Lambda \gg h$):** La onda penetra profundamente en el semiespacio, haciéndose insensible a la capa superficial; la velocidad tiende a la del sustrato rocoso:
+  $$c_R \to \xi_2 v_{S2} \approx 0.933 \, v_{S2} = 606.1\text{ m/s}$$
+
+### C. Sensibilidad con la Profundidad
+La profundidad efectiva de muestreo de la onda de Rayleigh escala directamente con su longitud de onda $\Lambda(f) = c_R(f) / f$:
+- **A 20 Hz ($\Lambda \approx 9.6$ m):** El **99.9 %** de la sensibilidad se ubica en los primeros 10 metros. La onda no detecta el semiespacio.
+- **A 10 Hz ($\Lambda \approx 27.0$ m):** El **97.8 %** de la sensibilidad permanece en la capa.
+- **A 6 Hz ($\Lambda \approx 86.8$ m):** Zona de transición; el **81.8 %** de la sensibilidad está en la capa y el **18.2 %** en el sustrato.
+- **A 3 Hz ($\Lambda \approx 191.8$ m):** La onda penetra profundamente; solo el **25.5 %** de la sensibilidad proviene de la capa, muestreando mayoritariamente el lecho rocoso profundo.
+
+Esta dependencia espectral de la profundidad de muestreo es el fundamento que permite realizar la **inversión sísmica (tomografía del subsuelo)** a partir de mediciones no invasivas en superficie (MASW).
+
+---
+
+## 5. Referencias Bibliográficas
+
+1. **Rayleigh, L. (1885).** On waves propagated along the plane surface of an elastic solid. *Proc. London Math. Soc.*, s1-17(1), 4–11.
+2. **Aki, K. & Richards, P. G. (2002).** *Quantitative Seismology* (2.ª ed.). University Science Books.
+3. **Ministerio de Vivienda, Construcción y Saneamiento (2018).** *Norma Técnica E.030 Diseño Sismorresistente*. Reglamento Nacional de Edificaciones, Perú.
+4. **Dunkin, J. W. (1965).** Computation of modal solutions in layered, elastic media at high frequencies. *BSSA*, 55(2), 335–358.
+5. **Luu, K.** *disba: Numba-accelerated computation of surface wave dispersion* (v0.7.0). Zenodo.
+6. **Xia, J., Miller, R. D. & Park, C. B. (1999).** Estimation of near-surface shear-wave velocity by inversion of Rayleigh waves. *Geophysics*, 64(3), 691–700.
+7. **Park, C. B., Miller, R. D. & Xia, J. (1999).** Multichannel analysis of surface waves. *Geophysics*, 64(3), 800–808.

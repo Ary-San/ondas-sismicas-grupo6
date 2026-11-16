@@ -1,3 +1,5 @@
 disba==0.7.0
 numpy
 matplotlib
+sympy
+mpmath
