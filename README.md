@@ -46,6 +46,16 @@ Las cifras citadas están en `src/numeros.json`.
 
 Regenerar: además de lo de la Etapa A, descargar Source Sans 3 (TTF) en `src/ttf/` y correr `python3 figuras.py && node build_bc.mjs`.
 
+### Maqueta en la plantilla oficial de UTEC (versión para entregar)
+
+`maqueta/maqueta_utec.pdf` es el póster en el formato de la plantilla del curso:
+- **Formato:** A0 horizontal, banda celeste #01BEFF con el logo UTEC, franja negra con integrantes y afiliación, títulos en Arial (aquí Arimo, su equivalente libre) y cuerpo en Open Sans.
+- **Secciones:** Introducción, Metodología, Resultados, Conclusiones y Referencias bibliográficas.
+- **Contenido:** el de la versión B+C completa, con las correcciones de la auditoría.
+- **Figuras:** en `maqueta/figuras_utec/`, generadas con `src/figuras_u.py`.
+
+Para regenerar: `python3 src/figuras_u.py` y `node src/build_u.mjs`. Hace falta descargar Open Sans y Arimo en `src/ttf/`.
+
 ### Maqueta estética
 
 `maqueta/maqueta_estetica.pdf` parte de la versión B+C corregida y le cambia la presentación:
