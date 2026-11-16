@@ -229,3 +229,13 @@ Evaluando en z = 0 y dividiendo por μE:
 **Evidencia que falta para una validación completa:**
 - El código usado para el póster original, que permitiría verificar las cifras marcadas como NO VERIFICABLE.
 - Datos de campo reales, si se quisiera validar la aplicación. Hoy todo es sintético y así se declara.
+
+## 18. Estado: correcciones aplicadas a `maqueta/maqueta_etapaBC.pdf`
+Las correcciones E1–E10 están aplicadas y marcadas en rojo en `maqueta_etapaBC_anotada.pdf`.
+
+- **E1 y E3:** v<sub>g</sub> se calcula ahora con la ec. (9), con Δf = 0,05 Hz. El mínimo de Airy se refina con una parábola por tres puntos: A en 9,648 Hz y 76,52 m/s; B en 6,638 Hz y 163,31 m/s. La referencia de alta precisión da 9,646 Hz y 76,49 m/s (A) y 6,636 Hz y 163,29 m/s (B).
+- **E2:** la frase de validación de v<sub>g</sub> está reescrita.
+- **E4:** la Fig. 5 y la conclusión indican que la fracción se calcula sobre ∂c<sub>R</sub>/∂v<sub>s</sub>, con v<sub>p</sub> y ρ fijos.
+- **E5–E10:** añadidos la relación A–B, la convención de ejes, la notación (A, B) ≠ (0, 0), la unicidad para 0 < β < 3/4, el rango 0,87–0,96 v<sub>s</sub> y la resolución de la inversión.
+
+**Pendiente fuera de la maqueta:** `scripts/dispersion.py` sigue usando el v<sub>g</sub> interno de disba (ver §13). En el póster original de Canva hay que corregir "9,7 → 4,8 Hz" por "9,6 → 4,8 Hz".

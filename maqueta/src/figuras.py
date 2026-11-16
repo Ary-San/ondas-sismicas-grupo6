@@ -33,11 +33,20 @@ def model(h, vs1, vp1=600.0, rho1=1800.0):
             np.array([vs1, 650]) / 1000, np.array([rho1, 2100]) / 1000)
 
 
-def curves(m, f):
+def phase(m, f):
     T = np.sort(1 / np.asarray(f, float))
     cp = PhaseDispersion(*m)(T, 0, "rayleigh")
-    cg = GroupDispersion(*m)(T, 0, "rayleigh")
-    return (1 / cp.period[::-1], cp.velocity[::-1] * 1000, 1 / cg.period[::-1], cg.velocity[::-1] * 1000)
+    return 1 / cp.period[::-1], cp.velocity[::-1] * 1000
+
+
+def curves(m, f=None):
+    """c_R(f) de disba y v_g por la ec. (9) con diferencias centrales, Δf = 0,05 Hz (auditoría E2/E3:
+    el v_g interno de disba se desvía hasta 1,1 m/s en el mínimo)."""
+    ff = np.arange(0.95, 60.0501, 0.05)
+    fp, c = phase(m, ff)
+    vg = c / (1 - (fp / c) * np.gradient(c, fp))
+    keep = (fp >= 1) & (fp <= 60)
+    return fp[keep], c[keep], fp[keep], vg[keep]
 
 
 def logx(ax, lo=1, hi=60):
@@ -100,8 +109,11 @@ airy = {}
 for k, col in (("A", TEAL), ("B", ORANGE)):
     fg, g = C[k][2], C[k][3]
     i = np.argmin(g)
-    airy[k] = (round(float(fg[i]), 2), round(float(g[i]), 1))
-    axs[1].plot(fg[i], g[i], "o", ms=12, mfc="white", mec=col, mew=3)
+    a2, a1, _ = np.polyfit(fg[i - 1:i + 2] - fg[i], g[i - 1:i + 2], 2)   # vértice de la parábola por 3 puntos
+    fmin = fg[i] - a1 / (2 * a2)
+    gmin = float(np.polyval([a2, a1, _], fmin - fg[i]))
+    airy[k] = (round(float(fmin), 3), round(gmin, 2))
+    axs[1].plot(fmin, gmin, "o", ms=12, mfc="white", mec=col, mew=3)
 axs[1].annotate("fase de Airy\n(mínimo de $v_g$)", xy=(airy["A"][0], airy["A"][1]), xytext=(17, 70), fontsize=21, color=NAVY,
                 arrowprops=dict(arrowstyle="-|>", color=NAVY, lw=1.6), va="bottom")
 NUM["airy"] = airy
@@ -167,7 +179,7 @@ save(fig, "fig_kernels.svg")
 # ---------- 5. Inversión de prueba ----------
 rng = np.random.default_rng(0)
 fo = np.geomspace(3, 40, 25)
-_, cobs, _, _ = curves(M["A"], fo)
+_, cobs = phase(M["A"], fo)
 sig = 0.02 * cobs
 cobs_n = cobs + rng.normal(0, sig)
 hs = np.arange(4, 40.01, 0.5)

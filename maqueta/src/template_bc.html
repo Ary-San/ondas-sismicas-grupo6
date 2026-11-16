@@ -13,7 +13,7 @@
 :root { --navy:#102A43; --sec:#40596D; --teal:#006C78; --light:#E6F0F2; --bg:#F7F9FA; --bar:#254A5F; --pale:#BCDBE1; --orange:#AD481F; --chg:#8E2DB8; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 2383.94pt; height: 3370.39pt; }
-body { background: var(--bg); color: var(--navy); font-family: 'Source Sans 3', sans-serif; font-size: 30pt; line-height: 39pt; position: relative; overflow: hidden; }
+body { background: var(--bg); color: var(--navy); font-family: 'Source Sans 3', sans-serif; font-size: 30pt; line-height: 38pt; position: relative; overflow: hidden; }
 sub { font-size: 70%; vertical-align: -0.28em; line-height: 0; }
 .abs { position: absolute; }
 .katex { font-size: 1.0em; }
@@ -33,10 +33,10 @@ sub { font-size: 70%; vertical-align: -0.28em; line-height: 0; }
 #qr img { width: 230pt; height: 230pt; display: block; background: #fff; padding: 12pt; border-radius: 6pt; }
 #qr div { font-size: 21pt; line-height: 25pt; margin-top: 8pt; color: var(--pale); }
 
-.col { position: absolute; top: 676pt; height: 2124pt; width: 717pt; }
+.col { position: absolute; top: 676pt; height: 2144pt; width: 717pt; }
 #c1 { left: 71.5pt; } #c2 { left: 834.3pt; } #c3 { left: 1597.1pt; }
 .lab { border-top: 4pt solid var(--teal); padding-top: 9pt; font-size: 26pt; line-height: 30pt; font-weight: 700; color: var(--teal); letter-spacing: 1pt; margin-bottom: 14pt; }
-h2 { font-size: 46pt; line-height: 52pt; font-weight: 700; margin: 20pt 0 6pt; }
+h2 { font-size: 46pt; line-height: 52pt; font-weight: 700; margin: 14pt 0 6pt; }
 .lab + h2, .lab + .chg > h2:first-child { margin-top: 0; }
 p { margin: 0 0 6pt; }
 .cap { font-size: 24pt; line-height: 29pt; color: var(--sec); margin: 2pt 0 8pt; }
@@ -52,13 +52,13 @@ ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--
 .lim { background: var(--light); padding: 12pt 18pt; font-size: 24pt; line-height: 30pt; margin-top: 10pt; }
 .lim b { color: var(--teal); letter-spacing: 0.6pt; }
 
-#concl { position: absolute; left: 71.5pt; top: 2826pt; width: 2243.3pt; height: 272pt; background: var(--navy); color: #fff; padding: 22pt 42pt; }
+#concl { position: absolute; left: 71.5pt; top: 2846pt; width: 2243.3pt; height: 272pt; background: var(--navy); color: #fff; padding: 22pt 42pt; }
 #concl h3 { font-size: 36pt; line-height: 42pt; font-weight: 700; margin-bottom: 14pt; }
 #concl h3 span { color: var(--pale); font-size: 28pt; letter-spacing: 1pt; margin-right: 14pt; }
 #concl .g { display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 60pt; }
 #concl .n { font-size: 64pt; line-height: 70pt; font-weight: 700; color: var(--pale); white-space: nowrap; }
 #concl p { font-size: 27pt; line-height: 33pt; color: #E6F0F2; }
-#refs { position: absolute; left: 71.5pt; top: 3116pt; width: 2243pt; }
+#refs { position: absolute; left: 71.5pt; top: 3134pt; width: 2243pt; }
 #refs h3 { font-size: 22pt; font-weight: 700; color: var(--teal); letter-spacing: 1pt; margin-bottom: 8pt; line-height: 26pt; }
 #refs .g { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 44pt; row-gap: 10pt; font-size: 19pt; line-height: 24pt; color: var(--sec); }
 #refs i { font-style: italic; }
@@ -67,6 +67,8 @@ ul.tight li::before { content: "▸"; position: absolute; left: 0; color: var(--
 .chg { position: relative; }
 body.annot .chg { outline: 4pt dashed var(--chg); outline-offset: 6pt; }
 body.annot .chg::before { content: attr(data-tag); position: absolute; right: -4pt; top: -22pt; background: var(--chg); color: #fff; font-size: 18pt; line-height: 22pt; font-weight: 700; padding: 3pt 10pt; border-radius: 4pt; z-index: 5; white-space: nowrap; }
+body.annot .fix { outline: 4pt solid #C62828; outline-offset: 3pt; position: relative; }
+body.annot .fix::before { content: attr(data-tag); position: absolute; left: 0; top: -26pt; background: #C62828; color: #fff; font-size: 17pt; line-height: 21pt; font-weight: 700; padding: 2pt 8pt; border-radius: 4pt; white-space: nowrap; z-index: 6; }
 body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: var(--navy); padding: 0 8pt; }
 </style>
 </head>
@@ -96,6 +98,7 @@ body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: v
   <p><m>\mathbf u=\nabla\phi+\nabla\times(\psi\hat{\mathbf y})</m>: <m>\nabla\!\cdot\mathbf u=\nabla^2\phi</m> (φ: volumen, P) y <m>\nabla\!\cdot\nabla\times=0</m> (ψ: cizalla, SV) [2]:</p>
   <M>\begin{gathered}\partial_t^2\phi=v_p^2\nabla^2\phi,\quad \partial_t^2\psi=v_s^2\nabla^2\psi\\ v_p=\sqrt{(\lambda+2\mu)/\rho},\quad v_s=\sqrt{\mu/\rho}\end{gathered}\tag{2}</M>
   <M>\begin{gathered}\phi=Ae^{-qz}E,\ \ \psi=Be^{-sz}E,\ \ E=e^{i(kx-\omega t)}\\ q^2=k^2-\tfrac{\omega^2}{v_p^2},\quad s^2=k^2-\tfrac{\omega^2}{v_s^2}\end{gathered}\tag{3}</M>
+  <p><span class="fix" data-tag="E5 · E8">Medio en z ≥ 0 (z hacia abajo); B = −2ikqA/(k²+s²) por (7):</span></p>
   <M>u_x=\partial_x\phi-\partial_z\psi=ikA\big[e^{-qz}-\tfrac{2qs}{k^2+s^2}e^{-sz}\big]E\tag{4}</M>
   <M>u_z=\partial_z\phi+\partial_x\psi=-qA\big[e^{-qz}-\tfrac{2k^2}{k^2+s^2}e^{-sz}\big]E\tag{5}</M>
   <p>El factor <b>i</b> desfasa u<sub>x</sub> 90°: <b>la órbita es una elipse</b>. A 0,17 Λ, u<sub>x</sub> = 0 y el giro se invierte.</p>
@@ -105,14 +108,14 @@ body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: v
   <M>\begin{gathered}\sigma_{zz}=\lambda\nabla^2\phi+2\mu(\partial_z^2\phi+\partial_x\partial_z\psi)\\ \sigma_{xz}=\mu(2\partial_x\partial_z\phi+\partial_x^2\psi-\partial_z^2\psi)\end{gathered}\tag{6}</M>
   <p>Con (3) en z = 0 se obtiene un sistema homogéneo:</p>
   <M>\underbrace{\begin{pmatrix}k^2+s^2 & -2iks\\ -2ikq & -(k^2+s^2)\end{pmatrix}}_{M}\begin{pmatrix}A\\ B\end{pmatrix}=\mathbf 0\tag{7}</M>
-  <p>A, B ≠ 0 ⇔ det M = 0 ⇔ <m>(k^2+s^2)^2=4k^2qs</m>. Entre k⁴:</p>
+  <p><span class="fix" data-tag="E9">(A, B) ≠ (0, 0)</span> ⇔ det M = 0 ⇔ <m>(k^2+s^2)^2=4k^2qs</m>. Entre k⁴:</p>
   <M>\begin{gathered}(2-\xi^2)^2-4\sqrt{1-\xi^2}\sqrt{1-\beta\xi^2}=0\\ \xi=c_R/v_s,\quad \beta=(v_s/v_p)^2,\quad c_R=\omega/k\end{gathered}\tag{8}</M>
-  <p>Raíz única en 0 &lt; ξ &lt; 1 (el lado izquierdo va de &lt; 0 a +1). Semiespacio: c<sub>R</sub> = 606,1 m/s. Sin ω en (8): no hay dispersión.</p>
+  <p><span class="fix" data-tag="E6">Hay raíz en 0 &lt; ξ &lt; 1 (el lado izquierdo va de &lt; 0 a +1), única si 0 &lt; β &lt; 3/4.</span> Semiespacio: c<sub>R</sub> = 606,1 m/s. Sin ω en (8): no hay dispersión.</p>
 
   <h2>¿Por qué c<sub>R</sub> &lt; v<sub>s</sub> &lt; v<sub>p</sub>?</h2>
   <ul class="tight">
     <li><m>v_p^2/v_s^2=2+\lambda/\mu</m> y la estabilidad (μ, K &gt; 0) da v<sub>p</sub>/v<sub>s</sub> &gt; 1,15.</li>
-    <li>Con c &gt; v<sub>s</sub>, SV radia hacia abajo (s imaginaria). Sin material encima la superficie cede: c<sub>R</sub> ≈ 0,93 v<sub>s</sub>.</li>
+    <li>Con c &gt; v<sub>s</sub>, SV radia hacia abajo (s imaginaria). Sin material encima la superficie cede: <span class="fix" data-tag="E7">c<sub>R</sub> ≈ 0,87–0,96 v<sub>s</sub> según ν</span>.</li>
   </ul>
 </div>
 
@@ -127,13 +130,13 @@ body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: v
   <p>Dunkin [4] con disba 0.7.0 [5], modo 0, 1–60 Hz. Control: el semiespacio solo da 606,1 m/s, igual que (8).</p>
   <div class="chg" data-tag="B · Fig. 3 rediseñada">
   <img class="fig" src="fig_dispersion.svg" style="margin-top:6pt">
-  <p class="cap"><b>Figura 3.</b> c<sub>R</sub> va de la velocidad de Rayleigh del semiespacio (606,1 m/s) a la de la capa (189,5 / 279,8). ○ Fase de Airy: 9,7 Hz (A), 6,7 Hz (B).</p>
+  <p class="cap"><b>Figura 3.</b> c<sub>R</sub> va de la velocidad de Rayleigh del semiespacio (606,1 m/s) a la de la capa (189,5 / 279,8). ○ <span class="fix" data-tag="E1 · E3">Fase de Airy: 9,6 Hz (A), 6,6 Hz (B); v<sub>g</sub> calculada con (9).</span></p>
   </div>
   <div class="chg" data-tag="B · cambios aislados graficados">
   <h2>Cambios aislados de h y v<sub>s</sub></h2>
   <img class="fig" src="fig_aislados.svg">
   <p class="cap"><b>Figura 4.</b> Desde A, cambiando un solo parámetro.</p>
-  <p>c<sub>R</sub> depende solo de <b>f·h</b>: duplicar h divide por 2 la frecuencia (Airy: 9,7 → 4,8 Hz). v<sub>s</sub> fija la asíntota; con v<sub>p</sub> fijo también baja ν (0,44 → 0,33).</p>
+  <p>c<sub>R</sub> depende solo de <b>f·h</b>: duplicar h divide por 2 la frecuencia (Airy: <span class="fix" data-tag="E1">9,6 → 4,8 Hz</span>). v<sub>s</sub> fija la asíntota; con v<sub>p</sub> fijo también baja ν (0,44 → 0,33).</p>
   </div>
 </div>
 
@@ -143,12 +146,12 @@ body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: v
   <h2>Fase y grupo</h2>
   <p>c<sub>R</sub> = ω/k sigue la fase; v<sub>g</sub> = dω/dk, la envolvente de un paquete, que sin pérdidas lleva la energía [2]:</p>
   <M>v_g=\frac{c_R}{1-(f/c_R)\,dc_R/df}\tag{9}</M>
-  <p>Con dc<sub>R</sub>/df &lt; 0, v<sub>g</sub> &lt; c<sub>R</sub> en toda la banda dispersiva. (9) difiere del solver ≤ 1,0 m/s.</p>
+  <p>Con dc<sub>R</sub>/df &lt; 0, v<sub>g</sub> &lt; c<sub>R</sub> en toda la banda dispersiva. <span class="fix" data-tag="E2">(9) coincide ≤ 0,1 m/s con una referencia de alta precisión; el v<sub>g</sub> interno de disba se desvía hasta 1,1 m/s en el mínimo.</span></p>
 
   <div class="chg" data-tag="B · kernels de sensibilidad">
   <h2>Sensibilidad en profundidad</h2>
   <img class="fig" src="fig_kernels.svg">
-  <p class="cap"><b>Figura 5.</b> Sensibilidad de c<sub>R</sub> a v<sub>s</sub>(z) en el Modelo A. %: fracción dentro de la capa de 10 m.</p>
+  <p class="cap"><b>Figura 5.</b> ∂c<sub>R</sub>/∂v<sub>s</sub>(z) del Modelo A. <span class="fix" data-tag="E4">%: fracción de su integral dentro de la capa de 10 m (v<sub>p</sub>, ρ fijos).</span></p>
   <p>Lo que &laquo;ve&raquo; cada frecuencia depende de Λ, del perfil y del modo [6]: no hay una regla fija f → z.</p>
   </div>
 
@@ -156,8 +159,8 @@ body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: v
   <h2>Inversión: ajustar la curva</h2>
   <M>\chi=\sqrt{\tfrac1N\textstyle\sum_i\big[(c_i^{\rm obs}-c_i^{\rm calc})/\sigma_i\big]^2}\tag{10}</M>
   <img class="fig" src="fig_inversion.svg">
-  <p class="cap"><b>Figura 6.</b> Curva de A con 2 % de ruido, búsqueda en rejilla (h, v<sub>s</sub>). ★ Modelo verdadero.</p>
-  <p>3–40 Hz: h = 9,5–10,5 m, v<sub>s</sub> = 194–206 m/s. Solo f ≥ 15 Hz: h = 8,5–40 m, sin cota [7].</p>
+  <p class="cap"><b>Figura 6.</b> Curva de A con 2 % de ruido, <span class="fix" data-tag="E10">una realización; rejilla 0,5 m × 2 m/s; región χ ≤ 1,5.</span> ★ Modelo verdadero.</p>
+  <p>3–40 Hz: h = 9,5–10,5 m, v<sub>s</sub> = 194–206 m/s. Solo f ≥ 15 Hz: h = 8,5–40 m <span class="fix" data-tag="E10">(40 = borde de la rejilla)</span>, sin cota [7].</p>
   </div>
 
   <div class="chg" data-tag="B · aplicación + Vs30 + limitaciones">
@@ -171,8 +174,8 @@ body.annot .flag { background: #F3E3FA; outline: 4pt dashed var(--chg); color: v
 <div id="concl" class="abs chg" data-tag="B · conclusión que responde la pregunta">
   <h3><span>CONCLUSIÓN</span>Cada frecuencia ve una profundidad distinta</h3>
   <div class="g">
-    <div><div class="n">98 %</div><p>de la sensibilidad de c<sub>R</sub> a 10 Hz está en los 10 m superiores; a 3 Hz, solo el 10 %.</p></div>
-    <div><div class="n">f · h</div><p>controla la curva: duplicar h baja la transición de 9,7 a 4,8 Hz; v<sub>s</sub> de la capa fija la asíntota.</p></div>
+    <div><div class="n">98 %</div><p>de la sensibilidad <span class="fix" data-tag="E4">(∂c<sub>R</sub>/∂v<sub>s</sub>)</span> a 10 Hz está en los 10 m superiores; a 3 Hz, solo el 10 %.</p></div>
+    <div><div class="n">f · h</div><p>controla la curva: duplicar h baja la transición de <span class="fix" data-tag="E1">9,6 a 4,8 Hz</span>; v<sub>s</sub> de la capa fija la asíntota.</p></div>
     <div><div class="n">h ≈ 10 m</div><p>se recupera con 3–40 Hz; con solo f ≥ 15 Hz queda indeterminado: la banda medida decide qué se puede invertir.</p></div>
   </div>
 </div>
