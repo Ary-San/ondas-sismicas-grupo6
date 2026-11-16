@@ -320,3 +320,9 @@ Los cambios 2, 6, 7, 8, 9 y 10 suman unas 6–8 líneas. Para que entren sin per
 | **Total del póster (sin criterio 2)** | **14,0** | **16,0 estricto · 18,0 con los 2 retoques** | | |
 
 **Riesgo no medible:** la Metodología, a 24 pt con 10 ecuaciones, es densa. Un evaluador podría verla como "texto excesivo". Está mitigado, porque todo es contenido que exige el enunciado y la exposición no debe leerla.
+
+**Actualización.**
+- **Referencias corregidas:** [3] con el nombre completo del ministerio y del Reglamento Nacional de Edificaciones; [5] con el título completo de disba.
+- **Ajuste de espacio:** para que entraran, la caja de Conclusiones se acortó 27 pt y la de Referencias creció lo mismo.
+- **Nombres:** se mantienen tal como los indicó el grupo.
+- **Resultado:** el criterio 1 queda en **8,0 (Destacado)**. El total del póster sin el criterio 2 es **18,0 / 18**. Los criterios 2 y 5 dependen de la exposición.
